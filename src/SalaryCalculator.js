@@ -7,15 +7,17 @@ export class SalaryCalculator {
 }
 
 export class FullTimeEmployeeCalculator extends SalaryCalculator {
-    constructor(basicSalary, discount) {
+    constructor(basicSalary, discount, contributions) {
         super();
         this.basicSalary = basicSalary;
         this.discount = discount;
+        this.contributions = contributions;
     }
 
     calculateSalary() {
+        let totalContributions = this.basicSalary * this.contributions /100;
         let totalDiscount = this.discount * this.basicSalary /100;
-        return "Basic Salary: " + this.basicSalary + "\n Discount: " + this.discount + "% \n Total Discount: " + totalDiscount + "\n Total Salary: " + (this.basicSalary - totalDiscount);
+        return "Basic Salary: " + this.basicSalary + "\n Discount: " + this.discount + "% \n Total Discount: " + totalDiscount + "\n Contributions: " + this.contributions + "%\n Total Contributions: " + totalContributions + "\n Total Salary: " + (this.basicSalary - totalDiscount - totalContributions);
     }
 }
 
