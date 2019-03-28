@@ -1,16 +1,13 @@
 import {generateBill} from '../bill'
+import {Employee} from '../Employee'
+import {FullTimeEmployeeCalculator} from '../SalaryCalculator'
 
 describe ("Bill", function(){
-    test("get bill with name and salary of employee", function () {
-        let bill = generateBill("Andres", 500, 0, 0);
-        expect(bill).toBe("Bill \n Employee: Andres \n Basic Salary: 500 \n Discount: 0 \n Contributions: 0 \n Total Salary: 500");
+    test("get bill with name and salary of full-time employee", function () {
+        let salaryCalculator = new FullTimeEmployeeCalculator(1100);
+        let employee = new Employee("Royer Torrico", 1, 2, "Champion",salaryCalculator);
+        let bill = generateBill(employee);
+        expect(bill).toBe("Bill \n Employee: Royer Torrico \n Total Salary: 1100");
     });
-    test("get bill with name and salary with discount of employee", function () {
-        let bill = generateBill("Andres", 500, 50, 0);
-        expect(bill).toBe("Bill \n Employee: Andres \n Basic Salary: 500 \n Discount: 50 \n Contributions: 0 \n Total Salary: 250");
-    });
-    test("get bill with name and total salary with discount and contributions of employee", function () {
-        let bill = generateBill("Andres", 500, 50, 100);
-        expect(bill).toBe("Bill \n Employee: Andres \n Basic Salary: 500 \n Discount: 50 \n Contributions: 100 \n Total Salary: 150");
-    });
+    
 })
