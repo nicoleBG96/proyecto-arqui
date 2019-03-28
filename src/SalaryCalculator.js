@@ -7,13 +7,15 @@ export class SalaryCalculator {
 }
 
 export class FullTimeEmployeeCalculator extends SalaryCalculator {
-    constructor(basicSalary) {
+    constructor(basicSalary, discount) {
         super();
         this.basicSalary = basicSalary;
+        this.discount = discount;
     }
 
     calculateSalary() {
-        return this.basicSalary;
+        let totalDiscount = this.discount * this.basicSalary /100;
+        return "Basic Salary: " + this.basicSalary + "\n Discount: " + this.discount + "% \n Total Discount: " + totalDiscount + "\n Total Salary: " + (this.basicSalary - totalDiscount);
     }
 }
 
@@ -25,7 +27,8 @@ export class HalfTimeEmployeeCalculator extends SalaryCalculator {
     }
 
     calculateSalary() {
-        return this.salaryPerHour * this.workedHours;
+        let totalSalary = this.salaryPerHour * this.workedHours;
+        return "Total Salary: " + totalSalary; 
     }
 }
 
@@ -37,6 +40,7 @@ export class SalesmanCalculator extends SalaryCalculator {
     }
 
     calculateSalary() {
-        return this.basicSalary +this.saleCommision;
+        let totalSalary = this.basicSalary + this.saleCommision;
+        return "Total Salary: " + totalSalary; 
     }
 }
