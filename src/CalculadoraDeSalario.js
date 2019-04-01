@@ -8,7 +8,7 @@ export class CalculadoraEmpleadoFijo {
     calcularSalario() {
         let aporteTotal = this.salarioBasico * this.aportes /100;
         let descuentoTotal = this.descuento * this.salarioBasico /100;
-        return "Salario Basico: " + this.salarioBasico + "\n Descuento: " + this.descuento + "% \n Descuento Total: " + descuentoTotal + "\n Aportes: " + this.aportes + "%\n Total Aportes: " + aporteTotal + "\n Total Salary: " + (this.salarioBasico - descuentoTotal - aporteTotal);
+        return "Salario Basico: " + this.salarioBasico + "\n Descuento: " + this.descuento + "% \n Descuento Total: " + descuentoTotal + "\n Aportes: " + this.aportes + "%\n Total Aportes: " + aporteTotal + "\n Salario Total: " + (this.salarioBasico - descuentoTotal - aporteTotal);
     }
 }
 

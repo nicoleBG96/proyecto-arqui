@@ -1,4 +1,4 @@
 export function generarBoleta(empleado) {
     let salarioTotal = empleado.calcularSalarioAPagar();
-    return "Boleta \n Empleado: " + empleado.nombre + " \n " + salarioTotal; 
+    return "Boleta de Pago \n Empleado: " + empleado.nombre + " \n " + salarioTotal; 
 }

@@ -1,27 +1,27 @@
-import {generateBill} from '../bill'
-import {Employee} from '../Employee'
-import {FullTimeEmployeeCalculator, HalfTimeEmployeeCalculator, SalesmanCalculator} from '../SalaryCalculator'
+import {BoletaDePago, generarBoleta} from '../BoletaDePago'
+import {Empleado} from '../Empleado'
+import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../CalculadoraDeSalario'
 
-describe ("Bill", function(){
-    test("get bill with name and salary of full-time employee", function () {
-        let salaryCalculator = new FullTimeEmployeeCalculator(1100,0, 0);
-        let employee = new Employee("Royer Torrico", 1, 2, "Champion",salaryCalculator);
-        let bill = generateBill(employee);
-        expect(bill).toBe("Bill \n Employee: Royer Torrico \n Basic Salary: 1100\n Discount: 0% \n Total Discount: 0\n Contributions: 0%\n Total Contributions: 0\n Total Salary: 1100");
+describe ("BoletaDePago", function(){
+    test("dada una boleta de pago con nombre y salario de un empleado fijo", function () {
+        let CalculadoraDeSalario = new CalculadoraEmpleadoFijo(1100,0, 0);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",CalculadoraDeSalario);
+        let boletaDePago = generarBoleta(empleado);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 0% \n Descuento Total: 0\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 1100");
     });
 
-    test("get bill with name and salary of full-time employee with discount of 10 percent", function () {
-        let salaryCalculator = new FullTimeEmployeeCalculator(1100,10,0);
-        let employee = new Employee("Royer Torrico", 1, 2, "Champion",salaryCalculator);
-        let bill = generateBill(employee);
-        expect(bill).toBe("Bill \n Employee: Royer Torrico \n Basic Salary: 1100\n Discount: 10% \n Total Discount: 110\n Contributions: 0%\n Total Contributions: 0\n Total Salary: 990");
+    test("dada una boleta de pago con nombre y salario de un empleado fijo con descuento del 10 porciento", function () {
+        let CalculadoraDeSalario = new CalculadoraEmpleadoFijo(1100,10,0);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",CalculadoraDeSalario);
+        let boletaDePago = generarBoleta(empleado);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 990");
     });
 
-    test("get bill with name and salary of full-time employee with discount of 10 percent", function () {
-        let salaryCalculator = new FullTimeEmployeeCalculator(1100,10,10);
-        let employee = new Employee("Royer Torrico", 1, 2, "Champion",salaryCalculator);
-        let bill = generateBill(employee);
-        expect(bill).toBe("Bill \n Employee: Royer Torrico \n Basic Salary: 1100\n Discount: 10% \n Total Discount: 110\n Contributions: 10%\n Total Contributions: 110\n Total Salary: 880");
+    test("dada una boleta de pago con nombre y salario de un empleado fijo con descuento del 10 porciento y aporte del 10 porciento", function () {
+        let CalculadoraDeSalario = new CalculadoraEmpleadoFijo(1100,10,10);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",CalculadoraDeSalario);
+        let boletaDePago = generarBoleta(empleado);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 10%\n Total Aportes: 110\n Salario Total: 880");
     });
 
     test("get bill with name and salary of half-time employee", function () {
