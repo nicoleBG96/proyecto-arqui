@@ -13,13 +13,13 @@ export class CalculadoraEmpleadoFijo {
 }
 
 export class CalculadoraEmpleadoParcial {
-    constructor(salarioPorHora, horasTrabajadas) {
+    constructor(salarioPorHora, tarjetaDeAsistencia) {
         this.salarioPorHora = salarioPorHora;
-        this.horasTrabajadas = horasTrabajadas;
+        this.tarjetaDeAsistencia = tarjetaDeAsistencia;
     }
 
     calcularSalario() {
-        let salarioTotal = this.salarioPorHora * this.horasTrabajadas;
+        let salarioTotal = this.salarioPorHora * this.tarjetaDeAsistencia.calcularHorasTrabajadas();
         return "Salario Total: " + salarioTotal; 
     }
 }
