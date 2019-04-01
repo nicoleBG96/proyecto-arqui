@@ -34,6 +34,15 @@ describe ("BoletaDePago", function(){
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 0");
     });
 
+    test("dada una boleta de pago con nombre y salario de un empleado parcial con 3 horas trabajadas", function () {
+        let tarjetaDeAsistencia = new TarjetaDeAsistencia();
+        let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
+        tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria);
+        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(100, tarjetaDeAsistencia);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let boletaDePago = generarBoleta(empleado);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 300");
+    });
 
     test("get bill with name and salary of salesman employee", function () {
         let salaryCalculator = new SalesmanCalculator(200,900);
