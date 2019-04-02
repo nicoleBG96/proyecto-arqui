@@ -25,13 +25,13 @@ export class CalculadoraEmpleadoParcial {
 }
 
 export class CalculadoraVendedor {
-    constructor(salarioBasico, comisionDeVenta) {
+    constructor(salarioBasico, ventas) {
         this.salarioBasico = salarioBasico;
-        this.comisionDeVenta = comisionDeVenta;
+        this.ventas = ventas;
     }
 
     calcularSalario() {
-        let salarioTotal = this.salarioBasico + this.comisionDeVenta;
+        let salarioTotal = this.salarioBasico + this.ventas.calcularTotalDeComisiones();
         return "Salario Total: " + salarioTotal; 
     }
 }

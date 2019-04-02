@@ -3,6 +3,8 @@ import {Empleado} from '../Empleado'
 import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../CalculadoraDeSalario'
 import { TarjetaDeAsistencia } from '../TarjetaDeAsistencia';
 import { AsistenciaDiaria } from '../AsistenciaDiaria';
+import { Ventas } from '../Ventas';
+import { TarjetaDeVenta } from '../TarjetaDeVenta';
 
 describe ("BoletaDePago", function(){
     test("dada una boleta de pago con nombre y salario de un empleado fijo", function () {
@@ -58,10 +60,23 @@ describe ("BoletaDePago", function(){
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 1000");
     });
 
-    test("get bill with name and salary of salesman employee", function () {
-        let salaryCalculator = new SalesmanCalculator(200,900);
-        let employee = new Employee("Royer Torrico", 1, 2, "Champion",salaryCalculator);
-        let bill = generateBill(employee);
-        expect(bill).toBe("Bill \n Employee: Royer Torrico \n Total Salary: 1100");
+    test("dada una boleta de pago con nombre y salario de un empleado vendedor con ninguna venta registrada", function () {
+        let ventas = new Ventas();
+        let calculadoraDeSalario = new CalculadoraVendedor(100, ventas);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let boletaDePago = generarBoleta(empleado);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 100");
+    });
+
+    test("dada una boleta de pago con nombre y salario de un empleado vendedor con 2 ventas registradas", function () {
+        let ventas = new Ventas();
+        let tarjetaDeVenta1 = new TarjetaDeVenta("05/03/2019",1000, 50);
+        let tarjetaDeVenta2 = new TarjetaDeVenta("20/04/2019", 300, 10);
+        ventas.registrarVenta(tarjetaDeVenta1);
+        ventas.registrarVenta(tarjetaDeVenta2);
+        let calculadoraDeSalario = new CalculadoraVendedor(100, ventas);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let boletaDePago = generarBoleta(empleado);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 630");
     });
 })
