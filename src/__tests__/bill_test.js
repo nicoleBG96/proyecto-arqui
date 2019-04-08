@@ -40,7 +40,8 @@ describe ("BoletaDePago", function(){
         let tarjetaDeAsistencia = new TarjetaDeAsistencia();
         let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 24, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 0");
     });
 
@@ -51,7 +52,8 @@ describe ("BoletaDePago", function(){
         tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria);
         let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 24, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 300");
     });
 
@@ -66,7 +68,8 @@ describe ("BoletaDePago", function(){
         tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria3);
         let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 24, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 1000");
     });
 
@@ -75,8 +78,21 @@ describe ("BoletaDePago", function(){
         let ventas = new Ventas();
         let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor, 100, ventas);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 24, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 100");
+    });
+
+    test("dada una boleta de pago con nombre y salario de un empleado vendedor con 2 ventas registradas", function () {
+        let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
+        let ventas = new Ventas();
+        let tarjetaDeVenta1 = new TarjetaDeVenta("05/03/2019",1000, 50);
+        ventas.registrarVenta(tarjetaDeVenta1);
+        let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let fecha = new Date('5, 31, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
+        expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 600");
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado vendedor con 2 ventas registradas", function () {
@@ -88,7 +104,8 @@ describe ("BoletaDePago", function(){
         ventas.registrarVenta(tarjetaDeVenta2);
         let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 31, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 630");
     });
 })

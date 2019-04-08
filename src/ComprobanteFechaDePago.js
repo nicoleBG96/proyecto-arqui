@@ -25,7 +25,15 @@ export class ComprobanteFechaDePagoEmpleadoParcial {
     }
 
     esFechaDePago(fecha) {
-        return true;
+        function esSegundoViernes(fecha){
+            return fecha.getDate() >= 8 && fecha.getDate() <= 14;
+        }
+        function esCuartoViernes(fecha){
+            return fecha.getDate() >= 22 && fecha.getDate() <= 28;
+        }
+        if(fecha.getDay() === 5){
+            return esSegundoViernes(fecha) || esCuartoViernes(fecha);
+        }
     }
 }
 
@@ -35,6 +43,9 @@ export class ComprobanteFechaDePagoVendedor {
     }
 
     esFechaDePago(fecha) {
-        return true;
+        function esViernes(fecha){
+            return fecha.getDay() === 5;
+        }
+        return esViernes(fecha);
     }
 }
