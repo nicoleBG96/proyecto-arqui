@@ -1,11 +1,11 @@
-import {generarPlanillaDeSalarios} from '../generarPlanillaDeSalarios'
-import {Empleado} from '../Empleado'
-import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../CalculadoraDeSalario'
-import { TarjetaDeAsistencia } from '../TarjetaDeAsistencia';
-import { AsistenciaDiaria } from '../AsistenciaDiaria';
-import {ComprobanteFechaDePagoEmpleadoFijo, ComprobanteFechaDePagoEmpleadoParcial, ComprobanteFechaDePagoVendedor} from '../ComprobanteFechaDePago';
-import { Ventas } from '../Ventas';
-import { TarjetaDeVenta } from '../TarjetaDeVenta';
+import {generarPlanillaDeSalarios} from '../Generadores/generarPlanillaDeSalarios'
+import {Empleado} from '../Clases/Empleado'
+import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../Calculadoras/CalculadoraDeSalario'
+import { TarjetaDeAsistencia } from '../Parcial/TarjetaDeAsistencia';
+import { AsistenciaDiaria } from '../Parcial/AsistenciaDiaria';
+import {ComprobanteFechaDePagoEmpleadoFijo, ComprobanteFechaDePagoEmpleadoParcial, ComprobanteFechaDePagoVendedor} from '../Comprobantes/ComprobanteFechaDePago';
+import { Ventas } from '../Comision/Ventas';
+import { TarjetaDeVenta } from '../Comision/TarjetaDeVenta';
 
 describe ("generarPlanillaDeSalarios", function(){
     test("dada una lista de 3 empleados generar la planilla con las boletas de pagos de cada uno", function () {

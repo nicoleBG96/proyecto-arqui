@@ -1,11 +1,11 @@
-import {generarBoleta} from '../generarBoleta'
-import {Empleado} from '../Empleado'
-import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../CalculadoraDeSalario'
-import { TarjetaDeAsistencia } from '../TarjetaDeAsistencia';
-import { AsistenciaDiaria } from '../AsistenciaDiaria';
-import {ComprobanteFechaDePagoEmpleadoFijo, ComprobanteFechaDePagoEmpleadoParcial, ComprobanteFechaDePagoVendedor} from '../ComprobanteFechaDePago';
-import { Ventas } from '../Ventas';
-import { TarjetaDeVenta } from '../TarjetaDeVenta';
+import {generarBoleta} from '../Generadores/generarBoleta'
+import {Empleado} from '../Clases/Empleado'
+import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../Calculadoras/CalculadoraDeSalario'
+import { TarjetaDeAsistencia } from '../Parcial/TarjetaDeAsistencia';
+import { AsistenciaDiaria } from '../Parcial/AsistenciaDiaria';
+import {ComprobanteFechaDePagoEmpleadoFijo, ComprobanteFechaDePagoEmpleadoParcial, ComprobanteFechaDePagoVendedor} from '../Comprobantes/ComprobanteFechaDePago';
+import { Ventas } from '../Comision/Ventas';
+import { TarjetaDeVenta } from '../Comision/TarjetaDeVenta';
 
 describe ("generarBoleta", function(){
     test("dada una boleta de pago con nombre y salario de un empleado fijo", function () {

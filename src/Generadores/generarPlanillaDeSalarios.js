@@ -1,4 +1,4 @@
-import {generarBoleta} from './generarBoleta';
+import {generarBoleta} from '../Generadores/generarBoleta';
 
 export function generarPlanillaDeSalarios(empleados,fecha){
     let planillaDeSalarios = "Planilla de Salarios:\n";
