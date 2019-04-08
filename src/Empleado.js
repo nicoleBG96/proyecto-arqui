@@ -7,8 +7,8 @@ export class Empleado {
         this.calculadoraDeSalario = calculadoraDeSalario;
     }
 
-    calcularSalarioAPagar(){
-        return this.calculadoraDeSalario.calcularSalario();
+    calcularSalarioAPagar(fecha){
+        return this.calculadoraDeSalario.calcularSalario(fecha);
     }
 }
 

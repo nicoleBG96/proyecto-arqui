@@ -3,26 +3,30 @@ import {Empleado} from '../Empleado'
 import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../CalculadoraDeSalario'
 import { TarjetaDeAsistencia } from '../TarjetaDeAsistencia';
 import { AsistenciaDiaria } from '../AsistenciaDiaria';
+import {ComprobanteFechaDePagoEmpleadoFijo, ComprobanteFechaDePagoEmpleadoParcial, ComprobanteFechaDePagoVendedor} from '../ComprobanteFechaDePago';
 import { Ventas } from '../Ventas';
 import { TarjetaDeVenta } from '../TarjetaDeVenta';
 
 describe ("BoletaDePago", function(){
     test("dada una boleta de pago con nombre y salario de un empleado fijo", function () {
-        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(1100,0, 0);
+        let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
+        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,0, 0);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 0% \n Descuento Total: 0\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 1100");
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado fijo con descuento del 10 porciento", function () {
-        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(1100,10,0);
+        let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
+        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,10,0);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 990");
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado fijo con descuento del 10 porciento y aporte del 10 porciento", function () {
-        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(1100,10,10);
+        let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
+        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,10,10);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 10%\n Total Aportes: 110\n Salario Total: 880");
