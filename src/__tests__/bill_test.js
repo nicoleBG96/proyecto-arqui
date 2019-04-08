@@ -33,24 +33,27 @@ describe ("BoletaDePago", function(){
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado parcial sin horas trabajadas", function () {
+        let comprobanteFechaDePagoEmpleadoParcial = new ComprobanteFechaDePagoEmpleadoParcial();
         let tarjetaDeAsistencia = new TarjetaDeAsistencia();
-        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(100, tarjetaDeAsistencia);
+        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 0");
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado parcial con 3 horas trabajadas", function () {
+        let comprobanteFechaDePagoEmpleadoParcial = new ComprobanteFechaDePagoEmpleadoParcial();
         let tarjetaDeAsistencia = new TarjetaDeAsistencia();
         let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
         tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria);
-        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(100, tarjetaDeAsistencia);
+        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 300");
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado parcial con 3 horas trabajadas", function () {
+        let comprobanteFechaDePagoEmpleadoParcial = new ComprobanteFechaDePagoEmpleadoParcial();
         let tarjetaDeAsistencia = new TarjetaDeAsistencia();
         let asistenciaDiaria1 = new AsistenciaDiaria("28/03/2019", 9, 12);
         let asistenciaDiaria2 = new AsistenciaDiaria("29/03/2019", 9, 12);
@@ -58,7 +61,7 @@ describe ("BoletaDePago", function(){
         tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria1);
         tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria2);
         tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria3);
-        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(100, tarjetaDeAsistencia);
+        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 1000");

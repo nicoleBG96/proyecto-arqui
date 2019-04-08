@@ -18,13 +18,14 @@ export class CalculadoraEmpleadoFijo {
 }
 
 export class CalculadoraEmpleadoParcial {
-    constructor(salarioPorHora, tarjetaDeAsistencia) {
+    constructor(comprobanteFechaDePago,salarioPorHora, tarjetaDeAsistencia) {
+        this.comprobanteFechaDePago = comprobanteFechaDePago;
         this.salarioPorHora = salarioPorHora;
         this.tarjetaDeAsistencia = tarjetaDeAsistencia;
     }
 
     calcularSalario(fecha) {
-        if (comprobanteFechaDePago.esFechaDePago(fecha)) {
+        if (this.comprobanteFechaDePago.esFechaDePago(fecha)) {
             let salarioTotal = this.salarioPorHora * this.tarjetaDeAsistencia.calcularHorasTrabajadas();
             return "Salario Total: " + salarioTotal;
         } else {
@@ -34,13 +35,14 @@ export class CalculadoraEmpleadoParcial {
 }
 
 export class CalculadoraVendedor {
-    constructor(salarioBasico, ventas) {
+    constructor(comprobanteFechaDePago, salarioBasico, ventas) {
+        this.comprobanteFechaDePago = comprobanteFechaDePago;
         this.salarioBasico = salarioBasico;
         this.ventas = ventas;
     }
 
     calcularSalario(fecha) {
-        if (comprobanteFechaDePago.esFechaDePago(fecha)) {
+        if (this.comprobanteFechaDePago.esFechaDePago(fecha)) {
             let salarioTotal = this.salarioBasico + this.ventas.calcularTotalDeComisiones();
             return "Salario Total: " + salarioTotal;
         } else {
