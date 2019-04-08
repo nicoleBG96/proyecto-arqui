@@ -1,4 +1,4 @@
-import {BoletaDePago, generarBoleta} from '../BoletaDePago'
+import {generarBoleta} from '../generarBoleta'
 import {Empleado} from '../Empleado'
 import {CalculadoraEmpleadoFijo, CalculadoraEmpleadoParcial, CalculadoraVendedor} from '../CalculadoraDeSalario'
 import { TarjetaDeAsistencia } from '../TarjetaDeAsistencia';
