@@ -12,7 +12,8 @@ describe ("BoletaDePago", function(){
         let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
         let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,0, 0);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 31, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 0% \n Descuento Total: 0\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 1100");
     });
 
@@ -20,7 +21,8 @@ describe ("BoletaDePago", function(){
         let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
         let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,10,0);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 31, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 990");
     });
 
@@ -28,7 +30,8 @@ describe ("BoletaDePago", function(){
         let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
         let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,10,10);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let boletaDePago = generarBoleta(empleado);
+        let fecha = new Date('5, 31, 2019');
+        let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 10%\n Total Aportes: 110\n Salario Total: 880");
     });
 

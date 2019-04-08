@@ -1,4 +1,4 @@
-export function generarBoleta(empleado) {
-    let salarioTotal = empleado.calcularSalarioAPagar("25-05-19");
+export function generarBoleta(empleado, fecha) {
+    let salarioTotal = empleado.calcularSalarioAPagar(fecha);
     return "Boleta de Pago \n Empleado: " + empleado.nombre + " \n " + salarioTotal; 
 }
