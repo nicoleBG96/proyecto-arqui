@@ -90,7 +90,7 @@ describe ("BoletaDePago", function(){
         ventas.registrarVenta(tarjetaDeVenta1);
         let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let fecha = new Date('5, 31, 2019');
+        let fecha = new Date('5, 10, 2019');
         let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 600");
     });
@@ -104,7 +104,7 @@ describe ("BoletaDePago", function(){
         ventas.registrarVenta(tarjetaDeVenta2);
         let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-        let fecha = new Date('5, 31, 2019');
+        let fecha = new Date('5, 10, 2019');
         let boletaDePago = generarBoleta(empleado, fecha);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 630");
     });
