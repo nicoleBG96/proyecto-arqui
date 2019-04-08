@@ -68,20 +68,22 @@ describe ("BoletaDePago", function(){
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado vendedor con ninguna venta registrada", function () {
+        let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
         let ventas = new Ventas();
-        let calculadoraDeSalario = new CalculadoraVendedor(100, ventas);
+        let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor, 100, ventas);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 100");
     });
 
     test("dada una boleta de pago con nombre y salario de un empleado vendedor con 2 ventas registradas", function () {
+        let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
         let ventas = new Ventas();
         let tarjetaDeVenta1 = new TarjetaDeVenta("05/03/2019",1000, 50);
         let tarjetaDeVenta2 = new TarjetaDeVenta("20/04/2019", 300, 10);
         ventas.registrarVenta(tarjetaDeVenta1);
         ventas.registrarVenta(tarjetaDeVenta2);
-        let calculadoraDeSalario = new CalculadoraVendedor(100, ventas);
+        let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
         let boletaDePago = generarBoleta(empleado);
         expect(boletaDePago).toBe("Boleta de Pago \n Empleado: Royer Torrico \n Salario Total: 630");
