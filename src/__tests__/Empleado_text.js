@@ -66,4 +66,13 @@ describe ("Empleado", function(){
         let fecha = new Date('5, 24, 2019');
         expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 1000");
     });
+
+    test("dado un empleado vendedor con sueldo basico de 100 y sin ninguna venta registrada, deberia ganar 100", function () {
+        let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
+        let ventas = new Ventas();
+        let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor, 100, ventas);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let fecha = new Date('5, 24, 2019');
+        expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 100");
+    });
 })
