@@ -30,4 +30,10 @@ describe ("ComprobanteFechaDePago", function(){
         let fecha = new Date('5, 10, 2019');
         expect(comprobanteFechaDePagoVendedor.esFechaDePago(fecha)).toBe(true);
     });
+
+    test("dada la fecha 14/05/2019 deberia devolverme que es el cuarto viernes del mes", function () {
+        let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
+        let fecha = new Date('5, 24, 2019');
+        expect(comprobanteFechaDePagoVendedor.esFechaDePago(fecha)).toBe(true);
+    });
 })
