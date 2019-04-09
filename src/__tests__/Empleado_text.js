@@ -51,4 +51,19 @@ describe ("Empleado", function(){
         let fecha = new Date('5, 24, 2019');
         expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 300");
     });
+
+    test("dada un empleado parcial que gana 100 por hora y tiene 10 horas trabajadadas, deberia ganar 1000", function () {
+        let comprobanteFechaDePagoEmpleadoParcial = new ComprobanteFechaDePagoEmpleadoParcial();
+        let tarjetaDeAsistencia = new TarjetaDeAsistencia();
+        let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
+        tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria);
+        let asistenciaDiaria2 = new AsistenciaDiaria("31/03/2019", 9, 12);
+        tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria2);
+        let asistenciaDiaria3 = new AsistenciaDiaria("30/03/2019", 9, 13);
+        tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria3);
+        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let fecha = new Date('5, 24, 2019');
+        expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 1000");
+    });
 })
