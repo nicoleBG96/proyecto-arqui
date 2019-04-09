@@ -22,6 +22,6 @@ describe ("ComprobanteFechaDePago", function(){
     test("dada la fecha 14/05/2019 deberia devolverme que NO es viernes", function () {
         let comprobanteFechaDePagoEmpleadoParcial = new ComprobanteFechaDePagoEmpleadoParcial();
         let fecha = new Date('5, 14, 2019');
-        expect(comprobanteFechaDePagoEmpleadoParcial.esFechaDePago(fecha)).toBe(true);
+        expect(comprobanteFechaDePagoEmpleadoParcial.esFechaDePago(fecha)).toBe(false);
     });
 })
