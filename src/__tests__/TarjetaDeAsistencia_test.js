@@ -14,5 +14,12 @@ describe ("TarjetaDeAsistencia", function(){
         expect(tarjetaDeAsistencia.calcularHorasTrabajadas()).toBe(8);
     });
 
-    
+    test("dado que hay una tarjeta de 2 asintencia de 8 a 16 deberia devolver 8 horas trabajadas en total", function () {
+        let asitenciaDiaria1 = new AsistenciaDiaria("29/01/2019", 8, 16)
+        let tarjetaDeAsistencia = new TarjetaDeAsistencia()
+        tarjetaDeAsistencia.registrarAsistencia(asitenciaDiaria1);
+        let asitenciaDiaria2 = new AsistenciaDiaria("29/01/2019", 8, 16)
+        tarjetaDeAsistencia.registrarAsistencia(asitenciaDiaria2);
+        expect(tarjetaDeAsistencia.calcularHorasTrabajadas()).toBe(16);
+    });
 })
