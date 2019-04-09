@@ -24,4 +24,12 @@ describe ("Empleado", function(){
         expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 0%\n Total Aportes: 0\n Salario Total: 990");
     });
 
+    test("dado un empleado fijo que gana 1100, al cual se le descuente un 10% y el cual aporta 20% calcular su salario a pagar", function () {
+        let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
+        let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100,10, 20);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let fecha = new Date('5, 31, 2019');
+        expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Basico: 1100\n Descuento: 10% \n Descuento Total: 110\n Aportes: 20%\n Total Aportes: 220\n Salario Total: 770");
+    });
+
 })
