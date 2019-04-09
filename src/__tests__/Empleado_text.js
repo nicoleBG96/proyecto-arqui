@@ -75,4 +75,15 @@ describe ("Empleado", function(){
         let fecha = new Date('5, 24, 2019');
         expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 100");
     });
+
+    test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1000 registradas al 50% de comision, deberia ganar 600", function () {
+        let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
+        let ventas = new Ventas();
+        let tarjetaDeVenta1 = new TarjetaDeVenta("05/03/2019",1000, 50);
+        ventas.registrarVenta(tarjetaDeVenta1);
+        let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let fecha = new Date('5, 24, 2019');
+        expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 600");
+    });
 })
