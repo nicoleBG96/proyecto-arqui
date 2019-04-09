@@ -40,4 +40,15 @@ describe ("Empleado", function(){
         let fecha = new Date('5, 24, 2019');
         expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 0");
     });
+
+    test("dada un empleado parcial que gana 100 por hora y tiene 3 horas trabajadadas, deberia ganar 300", function () {
+        let comprobanteFechaDePagoEmpleadoParcial = new ComprobanteFechaDePagoEmpleadoParcial();
+        let tarjetaDeAsistencia = new TarjetaDeAsistencia();
+        let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
+        tarjetaDeAsistencia.registrarAsistencia(asistenciaDiaria);
+        let calculadoraDeSalario = new CalculadoraEmpleadoParcial(comprobanteFechaDePagoEmpleadoParcial, 100, tarjetaDeAsistencia);
+        let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
+        let fecha = new Date('5, 24, 2019');
+        expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 300");
+    });
 })
