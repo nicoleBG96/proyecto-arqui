@@ -8,7 +8,7 @@ export class TarjetaDeAsistencia{
     calcularHorasTrabajadas(){
         let horasTrabajadas = 0;
         this.asistencias.forEach(asistencia => {
-            horasTrabajadas = horasTrabajadas + asistencia.horasTrabajadas();
+            horasTrabajadas = horasTrabajadas + asistencia.calcularHorasTrabajadas();
         });
         return horasTrabajadas;
     }
