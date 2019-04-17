@@ -1,8 +1,8 @@
 {
-  "name": "parrot-refactoring-kata",
+  "name": "proyecto-arqui",
   "version": "0.0.1",
-  "description": "parrot refactoring kata",
-  "main": "src/parrot.js",
+  "description": "proyecto arqui",
+  "main": "src/Generadores/generarBoleta.js",
   "scripts": {
     "test": "jest"
   },
@@ -13,5 +13,8 @@
     "babel-jest": "^21.0.0",
     "babel-preset-es2015": "^6.24.1",
     "jest": "^21.0.1"
+  },
+  "dependencies": {
+    "mongodb": "^3.2.3"
   }
 }
