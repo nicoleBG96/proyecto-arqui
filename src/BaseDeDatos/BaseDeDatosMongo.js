@@ -56,4 +56,17 @@ export class BaseDeDatosMongo {
         });
     }
 
+    modificarEmpleado(carnet, nuevosValores) {
+        let self = this;
+        MongoClient.connect(self.url, function (err, db) {
+            if (err) throw err;
+            let dbo = db.db(self.nombre);
+            let query = { ci : carnet };
+            dbo.collection("empleados").updateOne(query, nuevosValores, function (err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
+                db.close();
+            });
+        });
+    }
 }

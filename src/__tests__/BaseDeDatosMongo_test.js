@@ -19,4 +19,13 @@ describe("Base de datos", function () {
         expect(true).toBe(true);
     });
 
+    test("Dada la base de datos MongoDB proyectoarqui donde hay la coleccion empleados de insertar al empleado Carlos Torrez con CI 8798668 y luego eliminarlo ya no deberia poderse recuperar", function () {
+        let baseDeDatosMongo = new BaseDeDatosMongo("arquiproyecto");
+        let empleado = { "tipo":"fijo", "ci":2525, "nombre":"Carlos", "apellido":"Torrez"};
+        //baseDeDatosMongo.insertarEmpleado(empleado)
+        let ci = 2525;
+        let nuevosValores = { $set: { "tipo":"comision", "ci":2525, "nombre":"Carlos", "apellido":"Torrez" } };
+        baseDeDatosMongo.modificarEmpleado(ci, nuevosValores);
+        expect(true).toBe(true);
+    });
 });
