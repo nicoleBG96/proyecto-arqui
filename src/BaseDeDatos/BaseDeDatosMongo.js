@@ -7,8 +7,9 @@ export class BaseDeDatosMongo {
     }
 
     crearConjuntoDeDatos(nombreConjunto) {
-        MongoClient.connect(this.url, function (err, db) {
-            let dbo = db.db(this.nombre);
+        let self = this;
+        MongoClient.connect(self.url, function (err, db) {
+            let dbo = db.db(self.nombre);
             dbo.createCollection(nombreConjunto, function (err, res) {
                 if (err) throw err;
                 db.close();
@@ -16,11 +17,26 @@ export class BaseDeDatosMongo {
         });
     }
 
-    insertarObjetoEnConjuntoDeDatos(nombreConjunto, objeto){
-        MongoClient.connect(this.url, function (err, db) {
-            let dbo = db.db(this.nombre);
-            dbo.collection(nombreConjunto).insertOne(objeto, function (err, res) {
+    insertarEmpleado(objeto) {
+        let self = this;
+        MongoClient.connect(self.url, function (err, db) {
+            let dbo = db.db(self.nombre);
+            dbo.collection("empleados").insertOne(objeto, function (err, res) {
                 if (err) throw err;
+                db.close();
+            });
+        });
+    }
+
+    recuperarEmpleado(carnet) {
+        let self = this;
+        MongoClient.connect(self.url, function (err, db) {
+            if (err) throw err;
+            var dbo = db.db(self.nombre);
+            let query = { ci: carnet };
+            dbo.collection("empleados").find(query).toArray(function (err, result) {
+                if (err) throw err;
+                console.log(result);
                 db.close();
             });
         });
