@@ -12,20 +12,6 @@ let url = "mongodb://localhost:27017/";
 
 describe("generarBoleta", function () {
     test("dada una boleta de pago con nombre y salario de un empleado fijo", function () {
-
-        MongoClient.connect(url, function (err, db) {
-            var dbo = db.db("arquiproyecto");
-            dbo.createCollection("vico", function (err, res) {
-                if (err) throw err;
-                db.close();
-            });
-            // var myobj = { name: "Company Inc", address: "Highway 37" };
-            // dbo.collection("personitas").insertOne(myobj, function (err, res) {
-            //     if (err) throw err;
-            //     db.close();
-            // });
-        });
-
         let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();
         let calculadoraDeSalario = new CalculadoraEmpleadoFijo(comprobanteFechaDePagoEmpleadoFijo, 1100, 0, 0);
         let empleado = new Empleado("Royer Torrico", 1, 2, "Champion", calculadoraDeSalario);
