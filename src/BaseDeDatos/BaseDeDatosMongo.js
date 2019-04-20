@@ -32,7 +32,7 @@ export class BaseDeDatosMongo {
         let self = this;
         MongoClient.connect(self.url, function (err, db) {
             if (err) throw err;
-            var dbo = db.db(self.nombre);
+            let dbo = db.db(self.nombre);
             let query = { ci: carnet };
             dbo.collection("empleados").find(query).toArray(function (err, result) {
                 if (err) throw err;
@@ -41,4 +41,19 @@ export class BaseDeDatosMongo {
             });
         });
     }
+
+    eliminarEmpleado(carnet) {
+        let self = this;
+        MongoClient.connect(self.url, function (err, db) {
+            if (err) throw err;
+            let dbo = db.db(self.nombre);
+            let query = { ci: carnet };
+            dbo.collection("empleados").deleteOne(query, function (err, obj) {
+                if (err) throw err;
+                console.log("1 document deleted");
+                db.close();
+            });
+        });
+    }
+
 }
