@@ -30,6 +30,7 @@ export class BaseDeDatosMongo {
 
     recuperarEmpleado(carnet) {
         let self = this;
+        let empleado;
         MongoClient.connect(self.url, function (err, db) {
             if (err) throw err;
             let dbo = db.db(self.nombre);
@@ -37,9 +38,11 @@ export class BaseDeDatosMongo {
             dbo.collection("empleados").find(query).toArray(function (err, result) {
                 if (err) throw err;
                 console.log(result);
+                empleado = result;
                 db.close();
             });
         });
+        return empleado;
     }
 
     eliminarEmpleado(carnet) {
