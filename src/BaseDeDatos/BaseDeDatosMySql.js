@@ -64,6 +64,13 @@ export class BaseDeDatosMySql {
     }
 
     modificarEmpleado(carnet, nuevosValores) {
-
+        con.connect(function (err) {
+            if (err) throw err;
+            var sql = "UPDATE empleados SET nombre = '" + nuevosValores.nombre + "' and apellido='" + nuevosValores.apellido + "' and apellido='" + nuevosValores.tipo + "' WHERE ci=" + carnet;
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log(result.affectedRows + " record(s) updated");
+            });
+        });
     }
 }
