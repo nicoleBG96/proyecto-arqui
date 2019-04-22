@@ -6,11 +6,11 @@ export class BaseDeDatosMongo {
         this.url = "mongodb://localhost:27017/";
     }
 
-    crearConjuntoDeDatos(nombreConjunto) {
+    crearConjuntoDeEmpleados() {
         let self = this;
         MongoClient.connect(self.url, function (err, db) {
             let dbo = db.db(self.nombre);
-            dbo.createCollection(nombreConjunto, function (err, res) {
+            dbo.createCollection("empleados", function (err, res) {
                 if (err) throw err;
                 db.close();
             });
