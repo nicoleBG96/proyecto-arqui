@@ -8,11 +8,11 @@ export class BaseDeDatosMongo {
 
     crearConjuntoDeEmpleados() {
         let self = this;
-        MongoClient.connect(self.url, function (err, db) {
-            let dbo = db.db(self.nombre);
-            dbo.createCollection("empleados", function (err, res) {
-                if (err) throw err;
-                db.close();
+        MongoClient.connect(self.url, function (error, daseDeDatos) {
+            let daseDeDatosAbierta = daseDeDatos.daseDeDatos(self.nombre);
+            daseDeDatosAbierta.createCollection("empleados", function (error, respuesta) {
+                if (error) throw error;
+                daseDeDatos.close();
             });
         });
     }
@@ -20,13 +20,13 @@ export class BaseDeDatosMongo {
     insertarEmpleado(empleado) {
         let self = this;
         return new Promise(function (resolve, reject) {
-            MongoClient.connect("mongodb://localhost:27017/", function (err, db) {
-                let dbo = db.db(self.nombre);
-                dbo.collection("empleados").insertOne(empleado, function (err, res) {
-                    if (err) throw err;
-                    res.message = 'Empleado insertado satisfactoriamente'
-                    resolve(res);
-                    db.close();
+            MongoClient.connect(self.url, function (error, daseDeDatos) {
+                let daseDeDatosAbierta = daseDeDatos.daseDeDatos(self.nombre);
+                daseDeDatosAbierta.collection("empleados").insertOne(empleado, function (error, respuesta) {
+                    if (error) throw error;
+                    respuesta.message = 'Empleado insertado satisfactoriamente'
+                    resolve(respuesta);
+                    daseDeDatos.close();
                 });
             });
         })
@@ -36,15 +36,15 @@ export class BaseDeDatosMongo {
         let self = this;
         return new Promise(function (resolve, reject) {
             let empleado;
-            MongoClient.connect(self.url, function (err, db) {
-                if (err) throw err;
-                let dbo = db.db(self.nombre);
+            MongoClient.connect(self.url, function (error, daseDeDatos) {
+                if (error) throw error;
+                let daseDeDatosAbierta = daseDeDatos.daseDeDatos(self.nombre);
                 let query = { ci: carnet };
-                dbo.collection("empleados").find(query).toArray(function (err, result) {
-                    if (err) throw err;
-                    empleado = result[0];
+                daseDeDatosAbierta.collection("empleados").find(query).toArray(function (error, resultado) {
+                    if (error) throw error;
+                    empleado = resultado[0];
                     resolve(empleado);
-                    db.close();
+                    daseDeDatos.close();
                 });
             });
         })
@@ -53,31 +53,31 @@ export class BaseDeDatosMongo {
     eliminarEmpleado(carnet) {
         let self = this;
         return new Promise(function (resolve, reject) {
-            MongoClient.connect(self.url, function (err, db) {
-                if (err) throw err;
-                let dbo = db.db(self.nombre);
+            MongoClient.connect(self.url, function (error, daseDeDatos) {
+                if (error) throw error;
+                let daseDeDatosAbierta = daseDeDatos.daseDeDatos(self.nombre);
                 let query = { ci: carnet };
-                dbo.collection("empleados").deleteOne(query, function (err, obj) {
+                daseDeDatosAbierta.collection("empleados").deleteOne(query, function (error, obj) {
                     obj.message = 'Empleado eliminado satisfactoriamente';
                     resolve(obj);
-                    db.close();
+                    daseDeDatos.close();
                 });
             });
         })
     }
 
-    modificarEmpleado(carnet, nuevosValores) {
+    modificarEmpleado(carnet, nuevosValorespuesta) {
         return new Promise(function (resolve, reject) {
             let self = this;
-            MongoClient.connect(self.url, function (err, db) {
-                if (err) throw err;
-                let dbo = db.db(self.nombre);
+            MongoClient.connect(self.url, function (error, daseDeDatos) {
+                if (error) throw error;
+                let daseDeDatosAbierta = daseDeDatos.daseDeDatos(self.nombre);
                 let query = { ci: carnet };
-                dbo.collection("empleados").updateOne(query, nuevosValores, function (err, res) {
-                    if (err) throw err;
-                    res.message = 'Empleado modificado satisfactoriamente';
-                    resolve(res);
-                    db.close();
+                daseDeDatosAbierta.collection("empleados").updateOne(query, nuevosValorespuesta, function (error, respuesta) {
+                    if (error) throw error;
+                    respuesta.message = 'Empleado modificado satisfactoriamente';
+                    resolve(respuesta);
+                    daseDeDatos.close();
                 });
             });
         })
