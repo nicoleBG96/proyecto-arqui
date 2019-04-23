@@ -8,3 +8,7 @@ To install dependencies:
 To run the test:
 
     npm test
+    
+To run the test coverage:
+
+    npx jest --coverage
