@@ -7,19 +7,8 @@ let con = mysql.createConnection({
     database: "proyectoarqui"
 });
 
-export class BaseDeDatosMySql {
-    constructor(nombre) {
-    }
-
-    crearConjuntoDeEmpleados() {
-        con.connect(function (err) {
-            if (err) throw err;
-            var sql = "CREATE TABLE `empleados` (`empleado_id` INT(11) NOT NULL AUTO_INCREMENT,`ci` INT(11),`nombre` VARCHAR(50) NOT NULL,`apellido` VARCHAR(50) NOT NULL,`cargo` VARCHAR(50) NOT NULL,PRIMARY KEY (`empleado_id`))";
-            con.query(sql, function (err, result) {
-                if (err) throw err;
-                console.log("Table created");
-            });
-        });
+export class RepositorioEmpleadoMySql {
+    constructor() {
     }
 
     insertarEmpleado(empleado) {

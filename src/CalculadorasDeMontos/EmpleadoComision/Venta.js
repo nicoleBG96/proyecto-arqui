@@ -1,4 +1,4 @@
-export class TarjetaDeVenta {
+export class Venta {
     constructor(fecha, montoVendido, porcentajeDeComision){
         this.fecha = fecha;
         this.montoVendido = montoVendido;

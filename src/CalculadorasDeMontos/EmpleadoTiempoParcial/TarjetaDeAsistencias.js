@@ -1,4 +1,4 @@
-export class TarjetaDeAsistencia{
+export class TarjetaDeAsistencias{
     constructor(){
         this.asistencias = [];
     }

@@ -1,4 +1,4 @@
-export class Ventas {
+export class TarjetaVentas {
     constructor() {
         this.ventas = [];
     }

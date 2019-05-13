@@ -1,20 +1,9 @@
 let MongoClient = require('mongodb').MongoClient;
 
-export class BaseDeDatosMongo {
+export class RepositorioEmpleadoMongoDB {
     constructor() {
         this.nombre = "arquiproyecto";
         this.url = "mongodb://localhost:27017/";
-    }
-
-    crearConjuntoDeEmpleados() {
-        let self = this;
-        MongoClient.connect(self.url, function (error, daseDeDatos) {
-            let daseDeDatosAbierta = daseDeDatos.daseDeDatos(self.nombre);
-            daseDeDatosAbierta.createCollection("empleados", function (error, respuesta) {
-                if (error) throw error;
-                daseDeDatos.close();
-            });
-        });
     }
 
     insertarEmpleado(empleado) {

@@ -7,9 +7,6 @@ import { ComprobanteFechaDePagoEmpleadoFijo, ComprobanteFechaDePagoEmpleadoParci
 import { Ventas } from '../Comision/Ventas';
 import { TarjetaDeVenta } from '../Comision/TarjetaDeVenta';
 
-let MongoClient = require('mongodb').MongoClient;
-let url = "mongodb://localhost:27017/";
-
 describe("generarBoleta", function () {
     test("dada una boleta de pago con nombre y salario de un empleado fijo", function () {
         let comprobanteFechaDePagoEmpleadoFijo = new ComprobanteFechaDePagoEmpleadoFijo();

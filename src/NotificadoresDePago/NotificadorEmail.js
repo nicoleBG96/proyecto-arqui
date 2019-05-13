@@ -2,11 +2,12 @@
 const nodemailer = require('nodemailer');
 
 export class NotificadorEmail {
-    constructor() {
-
+    constructor(notificador) {
+        this.notificador = notificador;
     }
 
     enviarNotificacion(destinatario, mensaje) {
+        this.notificador.enviarNotificacion(destinatario, mensaje);
         nodemailer.createTestAccount((err, account) => {
             let transporter = nodemailer.createTransport({
                 host: 'smtp.googlemail.com', // Gmail Host
