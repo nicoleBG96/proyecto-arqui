@@ -1,4 +1,4 @@
-class Notificador{
+export class Notificador{
     constructor(){
 
     }

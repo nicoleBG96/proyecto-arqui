@@ -1,4 +1,4 @@
-class NotificadorFacebook {
+export class NotificadorFacebook {
     constructor(notificador){
         this.notificador = notificador;
     }
