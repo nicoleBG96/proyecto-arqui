@@ -78,7 +78,7 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(1000);
     });
 
-    test("dado un empleado vendedor con sueldo basico de 100 y sin ninguna venta registrada, al calcular su salario deberia ganar devolver 100", function () {
+    test("dado un empleado por comision con sueldo basico de 100 y sin ninguna venta registrada, al calcular su salario deberia ganar devolver 100", function () {
         let tarjetaVentas = new TarjetaVentas();
         let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
@@ -88,7 +88,7 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(100);
     });
 
-    test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1000 registradas al 50% de comision, al calcular su salario deberia ganar devolver 600", function () {
+    test("dado un empleado por comision con sueldo basico de 100 y con ventas de 1000 registradas al 50% de comision, al calcular su salario deberia ganar devolver 600", function () {
         let tarjetaVentas = new TarjetaVentas();
         let venta = new Venta("05/03/2019",1000, 50);
         tarjetaVentas.registrarVenta(venta);
@@ -100,7 +100,7 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(600);
     });
 
-    test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1300 registradas al 50% de comision, al calcular su salario deberia ganar devolver 750", function () {
+    test("dado un empleado por comision con sueldo basico de 100 y con ventas de 1300 registradas al 50% de comision, al calcular su salario deberia ganar devolver 750", function () {
         let tarjetaVentas = new TarjetaVentas();
         let venta1 = new Venta("05/03/2019", 300, 50);
         tarjetaVentas.registrarVenta(venta1);

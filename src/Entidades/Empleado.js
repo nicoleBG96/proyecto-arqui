@@ -32,7 +32,7 @@ export class Empleado {
     }
 
     calcularSalarioBasico() {
-        return this.calculadoraDeMontos.calcularSalario();
+        return this.calculadoraDeMontos.calcularSalarioBasico();
     }
 
     obtenerPorcentajeDescuento() {

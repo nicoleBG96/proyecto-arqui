@@ -6,12 +6,12 @@ export class Boleta{
 
     obtenerDatosDeBoleta(){
         let datosBoleta = {
-            salarioBasico = this.empleado.calcularSalarioBasico(),
-            descuentoPorcentaje = this.empleado.obtenerPorcentajeDescuento(),
-            descuentoTotal = this.empleado.calcularDescuentoTotal(),
-            aportesPorcentaje = this.empleado.obtenerPorcentajeAportes(),
-            aportesTotales = this.empleado.calcularAportesTotales(),
-            salarioAPagar = this.empleado.calcularSalarioAPagar()
+            salarioBasico : this.empleado.calcularSalarioBasico(),
+            descuentoPorcentaje : this.empleado.obtenerPorcentajeDescuento(),
+            descuentoTotal : this.empleado.calcularDescuentoTotal(),
+            aportesPorcentaje : this.empleado.obtenerPorcentajeAportes(),
+            aportesTotales : this.empleado.calcularAportesTotales(),
+            salarioAPagar : this.empleado.calcularSalarioAPagar()
         }
         return datosBoleta;
     }
