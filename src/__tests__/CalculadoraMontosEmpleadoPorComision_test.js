@@ -2,7 +2,7 @@ import { CalculadoraMontosEmpleadoPorComision } from '../CalculadorasDeMontos/Ca
 import { TarjetaVentas } from '../CalculadorasDeMontos/EmpleadoComision/TarjetaVentas';
 import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
 
-describe ("Calculadora Vendedor", function(){
+describe ("CalculadoraMontosEmpleadoPorComision", function(){
     test("dada una calculadora de empleado por comision con un salario basico de 2500, sin ventas realizadas, deberia devolver un salario basico de 2500", function () {
         let tarjetaVentas = new TarjetaVentas();
         let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(2500, tarjetaVentas);

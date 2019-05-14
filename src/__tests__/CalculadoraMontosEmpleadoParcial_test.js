@@ -2,7 +2,7 @@ import { CalculadoraMontosEmpleadoParcial } from '../CalculadorasDeMontos/Calcul
 import { TarjetaDeAsistencias } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/TarjetaDeAsistencias';
 import { AsistenciaDiaria } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/AsistenciaDiaria';
 
-describe ("Calculadora Empleado Parcial", function(){
+describe ("CalculadoraMontosEmpleadoParcial", function(){
     test("dada una calculadora de empleado parcial con un salario por hora de 200, sin horas trabajadas, deberia devolver un salario basico de 0", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         let calculadoraDeSalario = new CalculadoraMontosEmpleadoParcial(200, tarjetaDeAsistencias);
