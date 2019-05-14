@@ -19,7 +19,7 @@ export class Boleta{
     renderizarBoleta(datosBoleta){
         return `Boleta de Pago\n
         Fecha: ${this.fechaDeEmision}\n
-        Empleado: Royer Torrico\n
+        Empleado: ${this.empleado.nombre}\n
         Salario Basico: ${datosBoleta.salarioBasico}\n
         Descuento: ${datosBoleta.descuentoPorcentaje}%\n
         Descuento Total: ${datosBoleta.descuentoTotal}\n

@@ -11,6 +11,22 @@ export class Empleado {
         this.fechaDeIngreso = new Date();
     }
 
+    obtenerNombre(){
+        return this.nombre;
+    }
+
+    obtenerCodigo(){
+        return this.codigo;
+    }
+
+    obtenerCi(){
+        return this.ci;
+    }
+
+    obtenerCargo(){
+        return this.cargo;
+    }
+
     esSuDiaDePaga(fecha) {
         return verificadorFechaDePago.esDiaDePaga(fecha);
     }
