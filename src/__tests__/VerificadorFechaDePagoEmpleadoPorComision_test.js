@@ -1,6 +1,6 @@
 import { VerificadorFechaDePagoEmpleadoPorComision } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
 
-describe ("VerificadorFechaDePagoEmpleadoParcial", function(){
+describe ("VerificadorFechaDePagoEmpleadoPorComision", function(){
     test("dado un verificador de fecha de pago de empleado por comision, al recibir la fecha 10/05/2019, deberia devolverme que es el ultimo dia habil del mes", function () {
         let fechaInicio = new Date('5, 4, 2019');
         let verificadorFechaDePago = new VerificadorFechaDePagoEmpleadoPorComision(fechaInicio);

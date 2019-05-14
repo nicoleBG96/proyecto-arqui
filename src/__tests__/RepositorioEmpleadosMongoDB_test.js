@@ -1,8 +1,8 @@
-import { BaseDeDatosMongo } from '../BaseDeDatos/BaseDeDatosMongo';
+import { RepositorioEmpleadoMongoDB } from '../Repositorios/RepositorioEmpleadoMongoDB';
 
-describe("Base de datos", function () {
-    test("Dada la base de datos MySql proyectoarqui donde hay la tabla empleados de insertar al empleado Fijo Albert Hofmann con CI 8798672 este deberia guardarse", function () {
-        let baseDeDatosMySql = new BaseDeDatosMongo();
+describe("RepositorioEmpleadoMongoDB", function () {
+    test("Dado un repositorio de empleados MongoDB de insertar al empleado Fijo Albert Hofmann con CI 8798672 este deberia guardarse", function () {
+        let baseDeDatosMySql = new RepositorioEmpleadoMongoDB();
         let empleado = { 'tipo': 'fijo', 'ci': 8798672, 'nombre': 'Albert', 'apellido': 'Hofmann' };
         let ci = 412;
         baseDeDatosMySql.insertarEmpleado(empleado)
@@ -13,8 +13,8 @@ describe("Base de datos", function () {
             });
     });
 
-    test("Dada la base de datos MySql proyectoarqui donde hay la tabla empleados de insertar al empleado a tiempo parcial Juan Siquier con CI 693954174 este deberia poderse recuperar", function () {
-        let baseDeDatosMySql = new BaseDeDatosMongo();
+    test("Dado un repositorio de empleados MongoDB de insertar al empleado a tiempo parcial Juan Siquier con CI 693954174 este deberia poderse recuperar", function () {
+        let baseDeDatosMySql = new RepositorioEmpleadoMongoDB();
         let empleado = { 'tipo': 'parcial', 'ci': 693954174, 'nombre': 'Juan', 'apellido': 'Siquier' };
         baseDeDatosMySql.insertarEmpleado(empleado)
             .then(respuesta => {
@@ -33,8 +33,8 @@ describe("Base de datos", function () {
             });
     });
 
-    test("Dada la base de datos MySql proyectoarqui donde hay la tabla empleados de insertar al empleado Carlos Torrez del tipo comision con CI 8798668 y luego eliminarlo ya no deberia poderse recuperar", function () {
-        let baseDeDatosMySql = new BaseDeDatosMongo();
+    test("Dado un repositorio de empleados MongoDB de insertar al empleado Carlos Torrez del tipo comision con CI 8798668 y luego eliminarlo ya no deberia poderse recuperar", function () {
+        let baseDeDatosMySql = new RepositorioEmpleadoMongoDB();
         let empleado = { "tipo": "comision", "ci": 8798668, "nombre": "Carlos", "apellido": "Torrez" };
         baseDeDatosMySql.insertarEmpleado(empleado)
             .then(respuesta => {
@@ -50,8 +50,8 @@ describe("Base de datos", function () {
             });
     });
 
-    test("Dada la base de datos MySql proyectoarqui donde hay la tabla empleados de insertar al empleado Fijo Toni Frontera con CI 151617 y luego eliminarlo y luego cambiarlo a tipo comision, los cambios deberian de guardarse", function () {
-        let baseDeDatosMySql = new BaseDeDatosMongo();
+    test("Dado un repositorio de empleados MongoDB de insertar al empleado Fijo Toni Frontera con CI 151617 y luego eliminarlo y luego cambiarlo a tipo comision, los cambios deberian de guardarse", function () {
+        let baseDeDatosMySql = new RepositorioEmpleadoMongoDB();
         let empleado = { "tipo": "fijo", "ci": 151617, "nombre": "Toni", "apellido": "Frontera" };
         baseDeDatosMySql.insertarEmpleado(empleado)
             .then(respuesta => {
