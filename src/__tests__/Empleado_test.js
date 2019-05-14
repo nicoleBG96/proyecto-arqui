@@ -40,7 +40,7 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(770);
     });
 
-    test("dada un empleado parcial que gana 100 por hora y no tiene horas trabajadadas, al calcular su salariodeberia ganar devolver 0", function () {
+    test("dada un empleado parcial que gana 100 por hora y no tiene horas trabajadadas, al calcular su salario deberia ganar devolver 0", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         let calculadoraDeSalario = new CalculadoraMontosEmpleadoParcial(100, tarjetaDeAsistencias);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
@@ -50,7 +50,7 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(0);
     });
 
-    test("dada un empleado parcial que gana 100 por hora y tiene 3 horas trabajadadas, al calcular su salariodeberia ganar devolver 300", function () {
+    test("dada un empleado parcial que gana 100 por hora y tiene 3 horas trabajadadas, al calcular su salario deberia ganar devolver 300", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria);
@@ -62,7 +62,7 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(300);
     });
 
-    test("dada un empleado parcial que gana 100 por hora y tiene 10 horas trabajadadas, deberia ganar 1000", function () {
+    test("dada un empleado parcial que gana 100 por hora y tiene 10 horas trabajadadas, al calcular su salario deberia ganar devolver 1000", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria);
@@ -78,36 +78,41 @@ describe("Empleado", function () {
         expect(empleado.calcularSalarioAPagar()).toBe(1000);
     });
 
-    // test("dado un empleado vendedor con sueldo basico de 100 y sin ninguna venta registrada, deberia ganar 100", function () {
-    //     let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
-    //     let ventas = new Ventas();
-    //     let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor, 100, ventas);
-    //     let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-    //     let fecha = new Date('5, 24, 2019');
-    //     expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 100");
-    // });
+    test("dado un empleado vendedor con sueldo basico de 100 y sin ninguna venta registrada, al calcular su salario deberia ganar devolver 100", function () {
+        let tarjetaVentas = new TarjetaVentas();
+        let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
+        let notificador = new NotificadorEmail();
+        let metodoDePago = new PagoPorDeposito();
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        expect(empleado.calcularSalarioAPagar()).toBe(100);
+    });
 
-    // test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1000 registradas al 50% de comision, deberia ganar 600", function () {
-    //     let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
-    //     let ventas = new Ventas();
-    //     let tarjetaDeVenta1 = new TarjetaDeVenta("05/03/2019",1000, 50);
-    //     ventas.registrarVenta(tarjetaDeVenta1);
-    //     let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
-    //     let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-    //     let fecha = new Date('5, 24, 2019');
-    //     expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 600");
-    // });
+    test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1000 registradas al 50% de comision, al calcular su salario deberia ganar devolver 600", function () {
+        let tarjetaVentas = new TarjetaVentas();
+        let venta = new Venta("05/03/2019",1000, 50);
+        tarjetaVentas.registrarVenta(venta);
+        let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
+        let notificador = new NotificadorEmail();
+        let metodoDePago = new PagoPorDeposito();
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        expect(empleado.calcularSalarioAPagar()).toBe(600);
+    });
 
-    // test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1300 registradas al 50% de comision, deberia ganar 750", function () {
-    //     let comprobanteFechaDePagoVendedor = new ComprobanteFechaDePagoVendedor();
-    //     let ventas = new Ventas();
-    //     let tarjetaDeVenta1 = new TarjetaDeVenta("05/03/2019",1000, 50);
-    //     let tarjetaDeVenta2 = new TarjetaDeVenta("20/04/2019", 300, 50);
-    //     ventas.registrarVenta(tarjetaDeVenta1);
-    //     ventas.registrarVenta(tarjetaDeVenta2);
-    //     let calculadoraDeSalario = new CalculadoraVendedor(comprobanteFechaDePagoVendedor,100, ventas);
-    //     let empleado = new Empleado("Royer Torrico", 1, 2, "Champion",calculadoraDeSalario);
-    //     let fecha = new Date('5, 24, 2019');
-    //     expect(empleado.calcularSalarioAPagar(fecha)).toBe("Salario Total: 750");
-    // });
+    test("dado un empleado vendedor con sueldo basico de 100 y con ventas de 1300 registradas al 50% de comision, al calcular su salario deberia ganar devolver 750", function () {
+        let tarjetaVentas = new TarjetaVentas();
+        let venta1 = new Venta("05/03/2019", 300, 50);
+        tarjetaVentas.registrarVenta(venta1);
+        let venta2 = new Venta("05/03/2019", 400, 50);
+        tarjetaVentas.registrarVenta(venta2);
+        let venta3 = new Venta("05/03/2019", 600, 50);
+        tarjetaVentas.registrarVenta(venta3);
+        let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
+        let notificador = new NotificadorEmail();
+        let metodoDePago = new PagoPorDeposito();
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        expect(empleado.calcularSalarioAPagar()).toBe(750);
+    });
 })
