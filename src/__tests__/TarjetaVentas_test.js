@@ -2,26 +2,26 @@ import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
 import { TarjetaVentas } from '../CalculadorasDeMontos/EmpleadoComision/TarjetaVentas'
 
 describe ("TarjetaVentas", function(){
-    test("dado que no existen ventas registradas, deberia devolver que la comision total es igual a 0", function () {
-        let ventas = new Ventas()
-        expect(ventas.calcularTotalDeComisiones()).toBe(0);
+    test("dada una tarjeta de ventas vacia, deberia devolver que la comision total es igual a 0", function () {
+        let tarjetaVentas = new TarjetaVentas()
+        expect(tarjetaVentas.calcularTotalDeComisiones()).toBe(0);
     });
 
-    test("dado que existe 1 venta registradas, deberia devolver que la comision total es igual a 500", function () {
-        let ventas = new Ventas();
+    test("dada una tarjeta de ventas con 1 venta de 1000 y comision del 50% registrada, deberia devolver que la comision total es igual a 500", function () {
+        let tarjetaVentas = new TarjetaVentas();
         let fecha = new Date('5, 10, 2019');
-        let tarjetaDeVenta1 = new TarjetaDeVenta(fecha,1000,50);
-        ventas.registrarVenta(tarjetaDeVenta1);
-        expect(ventas.calcularTotalDeComisiones()).toBe(500);
+        let venta = new Venta(fecha,1000,50);
+        tarjetaVentas.registrarVenta(venta);
+        expect(tarjetaVentas.calcularTotalDeComisiones()).toBe(500);
     });
 
-    test("dado que existen 2 ventas registradas, deberia devolver que la comision total es igual a 1200", function () {
-        let ventas = new Ventas();
+    test("dada una tarjeta de ventas con 2 ventas registradas. una de 5000 al 50% de comision y la otra de 200 al 10% de comision, deberia devolver que la comision total es igual a 1020", function () {
+        let tarjetaVentas = new TarjetaVentas();
         let fecha = new Date('5, 10, 2019');
-        let tarjetaDeVenta1 = new TarjetaDeVenta(fecha,2000,50);
-        let tarjetaDeVenta2 = new TarjetaDeVenta(fecha,200,100);
-        ventas.registrarVenta(tarjetaDeVenta1);
-        ventas.registrarVenta(tarjetaDeVenta2);
-        expect(ventas.calcularTotalDeComisiones()).toBe(1200);
+        let venta1 = new Venta(fecha,2000,50);
+        let venta2 = new Venta(fecha,200,10);
+        tarjetaVentas.registrarVenta(venta1);
+        tarjetaVentas.registrarVenta(venta2);
+        expect(tarjetaVentas.calcularTotalDeComisiones()).toBe(1020);
     });
 })
