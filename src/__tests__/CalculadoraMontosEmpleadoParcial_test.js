@@ -38,7 +38,7 @@ describe ("Calculadora Empleado Parcial", function(){
     test("dada una calculadora de empleado parcial, deberia devolver un aporte total de 0.0", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         let calculadoraDeSalario = new CalculadoraMontosEmpleadoParcial(300, tarjetaDeAsistencias);
-        expect(calculadoraDeSalario.calcularSalarioAPagar()).toBe(0.0);
+        expect(calculadoraDeSalario.calcularAportesTotales()).toBe(0.0);
     });
 
 })
