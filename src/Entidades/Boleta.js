@@ -16,10 +16,23 @@ export class Boleta{
         return datosBoleta;
     }
 
-    renderizarBoleta(datosBoleta){
+    obtenerDatosDelEmpleado(){
+        let datosEmpleado = {
+            nombreEmpleado : this.empleado.obtenerNombre(),
+            codigoEmpleado : this.empleado.obtenerCodigo(),
+            ciEmpleado : this.empleado.obtenerCi(),
+            cargoEmpleado : this.empleado.obtenerCargo(),
+        }
+        return datosEmpleado;
+    }
+
+    renderizarBoleta(datosBoleta, datosEmpleado){
         return `Boleta de Pago\n
         Fecha: ${this.fechaDeEmision}\n
-        Empleado: ${this.empleado.nombre}\n
+        Empleado: ${datosEmpleado.nombreEmpleado}\n
+        Codigo: ${datosEmpleado.codigoEmpleado}\n
+        Ci: ${datosEmpleado.ciEmpleado}\n
+        Cargo: ${datosEmpleado.cargoEmpleado}\n
         Salario Basico: ${datosBoleta.salarioBasico}\n
         Descuento: ${datosBoleta.descuentoPorcentaje}%\n
         Descuento Total: ${datosBoleta.descuentoTotal}\n
@@ -29,6 +42,6 @@ export class Boleta{
     }
 
     generarBoletaDelEmpleado(){
-        return renderizarBoleta(obtenerDatosDeBoleta());
+        return this.renderizarBoleta(this.obtenerDatosDeBoleta(), this.obtenerDatosDelEmpleado());
     }
 }

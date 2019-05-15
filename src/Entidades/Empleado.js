@@ -28,7 +28,7 @@ export class Empleado {
     }
 
     esSuDiaDePaga(fecha) {
-        return verificadorFechaDePago.esDiaDePaga(fecha);
+        return this.verificadorFechaDePago.esFechaDePago(fecha);
     }
 
     calcularSalarioBasico() {

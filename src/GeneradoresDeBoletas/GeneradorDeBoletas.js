@@ -4,12 +4,12 @@ export class GeneradorDeBoletas {
     constructor() {
     }
 
-    sePuedeGenerarLaBoletaDelEmpleado(empleado){
-        return empleado.esSuDiaDePaga(this.fechaDeEmision);
+    sePuedeGenerarLaBoletaDelEmpleado(empleado, fecha){
+        return empleado.esSuDiaDePaga(fecha);
     }
 
     generarUnaBoleta(empleado, fecha) {
-        if(sePuedeGenerarLaBoletaDelEmpleado(empleado)){
+        if(this.sePuedeGenerarLaBoletaDelEmpleado(empleado, fecha)){
             let boleta = new Boleta(empleado, fecha);
             return boleta.generarBoletaDelEmpleado();
         }else{
@@ -20,7 +20,7 @@ export class GeneradorDeBoletas {
     generarVariasBoletas(empleados, fecha) {
         let boletas = []
         empleados.forEach(empleado => {
-            boletas.add(generarUnaBoleta(empleado, fecha));
+            boletas.push(this.generarUnaBoleta(empleado, fecha));
         });
         return boletas;
     }
