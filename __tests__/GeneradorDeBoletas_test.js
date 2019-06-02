@@ -1,22 +1,22 @@
-import { GeneradorDeBoletas } from '../GeneradoresDeBoletas/GeneradorDeBoletas'
-import { Boleta } from '../Entidades/Boleta';
-import { Empleado } from '../Entidades/Empleado';
-import { CalculadoraMontosEmpleadoFijo } from '../CalculadorasDeMontos/CalculadoraMontosEmpleadoFijo';
-import { CalculadoraMontosEmpleadoParcial } from '../CalculadorasDeMontos/CalculadoraMontosEmpleadoParcial';
-import { CalculadoraMontosEmpleadoPorComision } from '../CalculadorasDeMontos/CalculadoraMontosEmpleadoPorComision';
-import { VerificadorFechaDePagoEmpleadoFijo } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
-import { VerificadorFechaDePagoEmpleadoParcial } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
-import { VerificadorFechaDePagoEmpleadoPorComision } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
-import { AsistenciaDiaria } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/AsistenciaDiaria';
-import { TarjetaDeAsistencias } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/TarjetaDeAsistencias';
-import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
-import { TarjetaVentas } from '../CalculadorasDeMontos/EmpleadoComision/TarjetaVentas';
-import { NotificadorEmail } from '../NotificadoresDePago/NotificadorEmail';
-import { PagoPorDeposito } from '../MetodoDePago/PagoPorDeposito';
+import { GeneradorDeBoletas } from '../dominio/Entidades/Boleta/GeneradoresDeBoletas/GeneradorDeBoletas'
+import { Boleta } from '../dominio/Entidades/Boleta/Boleta';
+import { Empleado } from '../dominio/Entidades/Empleado/Empleado';
+import { CalculadoraSalarioEmpleadoFijo } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo';
+import { CalculadoraSalarioEmpleadoParcial } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial';
+import { CalculadoraSalarioEmpleadoPorComision } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision';
+import { VerificadorFechaDePagoEmpleadoFijo } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
+import { VerificadorFechaDePagoEmpleadoParcial } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
+import { VerificadorFechaDePagoEmpleadoPorComision } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
+import { AsistenciaDiaria } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria';
+import { TarjetaDeAsistencias } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias';
+import { Venta } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta';
+import { TarjetaVentas } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas';
+import { NotificadorEmail } from '../dominio/Entidades/Empleado/NotificadoresDePago/NotificadorEmail';
+import { PagoPorDeposito } from '../dominio/Entidades/Empleado/MetodoDePago/PagoPorDeposito';
 
 describe("GeneradorDeBoletas", function () {
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia decir que si se puede generar su boleta", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date());
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -27,7 +27,7 @@ describe("GeneradorDeBoletas", function () {
     });
 
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia generar su boleta con todos los datos respectivos", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(5000, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(5000, new Date());
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -51,7 +51,7 @@ describe("GeneradorDeBoletas", function () {
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria2);
         let asistenciaDiaria3 = new AsistenciaDiaria("30/03/2019", 9, 13);
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria3);
-        let calculadoraDeSalario2 = new CalculadoraMontosEmpleadoParcial(100, tarjetaDeAsistencias);
+        let calculadoraDeSalario2 = new CalculadoraSalarioEmpleadoParcial(100, tarjetaDeAsistencias);
         let verificadorFechaDePagoEmpleadoFijo2 = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador2 = new NotificadorEmail();
         let metodoDePago2 = new PagoPorDeposito();
@@ -76,7 +76,7 @@ describe("GeneradorDeBoletas", function () {
         let venta3 = new Venta("05/03/2019", 600, 50);
         tarjetaVentas.registrarVenta(venta3);
         let fechaInicioTrabajo = new Date('5, 13, 2019');
-        let calculadoraDeSalario3 = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let calculadoraDeSalario3 = new CalculadoraSalarioEmpleadoPorComision(100, tarjetaVentas);
         let verificadorFechaDePagoEmpleadoFijo3 = new VerificadorFechaDePagoEmpleadoPorComision(fechaInicioTrabajo);
         let notificador3 = new NotificadorEmail();
         let metodoDePago3 = new PagoPorDeposito();
@@ -93,7 +93,7 @@ describe("GeneradorDeBoletas", function () {
     });
 
     test("dada una lista de 3 empleados a la hora de generar sus boleta el dia 5/31/2019 que les corresponde, deberia generar sus boletas con todos los datos respectivos", function () {
-        let calculadoraDeSalario1 = new CalculadoraMontosEmpleadoFijo(5000, 10, 13);
+        let calculadoraDeSalario1 = new CalculadoraSalarioEmpleadoFijo(5000, 10, 13);
         let verificadorFechaDePagoEmpleadoFijo1 = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador1 = new NotificadorEmail();
         let metodoDePago1 = new PagoPorDeposito();
@@ -106,7 +106,7 @@ describe("GeneradorDeBoletas", function () {
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria2);
         let asistenciaDiaria3 = new AsistenciaDiaria("30/03/2019", 9, 13);
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria3);
-        let calculadoraDeSalario2 = new CalculadoraMontosEmpleadoParcial(100, tarjetaDeAsistencias);
+        let calculadoraDeSalario2 = new CalculadoraSalarioEmpleadoParcial(100, tarjetaDeAsistencias);
         let verificadorFechaDePagoEmpleadoFijo2 = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador2 = new NotificadorEmail();
         let metodoDePago2 = new PagoPorDeposito();
@@ -120,7 +120,7 @@ describe("GeneradorDeBoletas", function () {
         let venta3 = new Venta("05/03/2019", 600, 50);
         tarjetaVentas.registrarVenta(venta3);
         let fechaInicioTrabajo = new Date('5, 13, 2019');
-        let calculadoraDeSalario3 = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let calculadoraDeSalario3 = new CalculadoraSalarioEmpleadoPorComision(100, tarjetaVentas);
         let verificadorFechaDePagoEmpleadoFijo3 = new VerificadorFechaDePagoEmpleadoPorComision(fechaInicioTrabajo);
         let notificador3 = new NotificadorEmail();
         let metodoDePago3 = new PagoPorDeposito();

@@ -1,4 +1,4 @@
-import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
+import { Venta } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta';
 
 describe ("Venta", function(){
     test("dada una venta de 1000 con una comision del 30%, deberia devolver una total de comision de 300", function () {

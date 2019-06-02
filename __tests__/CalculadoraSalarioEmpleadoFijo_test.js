@@ -1,6 +1,6 @@
-import { CalculadoraSalarioEmpleadoFijo } from '../CalculadorasDeMontos/CalculadoraSalarioEmpleadoFijo'
+import { CalculadoraSalarioEmpleadoFijo } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo'
 
-describe ("CalculadoraMontosEmpleadoFijo", function(){
+describe ("CalculadoraSalarioEmpleadoFijo", function(){
     test("dada una calculadora de empleado fijo con un sueldo basico de 2500 y que entro en anio pasado deberia devolver un sueldo basico de 2500", function () {
         let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(2500, new Date('6, 3, 2018'));
         expect(calculadoraDeSalario.calcularSalarioAPagar()).toBe(2500);

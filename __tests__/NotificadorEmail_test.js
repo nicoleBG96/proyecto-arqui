@@ -1,7 +1,7 @@
-import { NotificadorEmail } from '../NotificadoresDePago/NotificadorEmail';
-import { NotificadorWhatsapp } from '../NotificadoresDePago/NotificadorWhatsapp';
-import { NotificadorFacebook } from '../NotificadoresDePago/NotificadorFacebook';
-import { Notificador } from '../NotificadoresDePago/Notificador'
+import { NotificadorEmail } from '../dominio/Entidades/Empleado/NotificadoresDePago/NotificadorEmail';
+import { NotificadorWhatsapp } from '../dominio/Entidades/Empleado/NotificadoresDePago/NotificadorWhatsapp';
+import { NotificadorFacebook } from '../dominio/Entidades/Empleado/NotificadoresDePago/NotificadorFacebook';
+import { Notificador } from '../dominio/Entidades/Empleado/NotificadoresDePago/Notificador'
 
 describe("Notificador", function () {
     test("Dada la boleta de un empleado, este debe ser notificado via email.", function () {

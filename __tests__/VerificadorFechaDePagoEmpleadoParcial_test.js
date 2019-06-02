@@ -1,4 +1,4 @@
-import { VerificadorFechaDePagoEmpleadoParcial } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
+import { VerificadorFechaDePagoEmpleadoParcial } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
 
 describe ("VerificadorFechaDePagoEmpleadoParcial", function(){
     test("dado un verificador de fecha de pago de empleado parcial, al recibir la fecha 10/05/2019, deberia devolverme que es el ultimo dia habil del mes", function () {

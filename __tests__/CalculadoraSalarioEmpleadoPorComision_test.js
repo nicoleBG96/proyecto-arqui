@@ -1,8 +1,8 @@
-import { CalculadoraSalarioEmpleadoPorComision } from '../CalculadorasDeMontos/CalculadoraSalarioEmpleadoPorComision'
-import { TarjetaVentas } from '../CalculadorasDeMontos/EmpleadoComision/TarjetaVentas';
-import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
+import { CalculadoraSalarioEmpleadoPorComision } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision'
+import { TarjetaVentas } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas';
+import { Venta } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta';
 
-describe ("CalculadoraMontosEmpleadoPorComision", function(){
+describe ("CalculadoraSalarioEmpleadoPorComision", function(){
     test("dada una calculadora de empleado por comision con un salario basico de 2500, con 3 ventas de 100 al 50%, 25% y 10% de comison, deberia devolver un salario a pagar de 2585", function () {
         let tarjetaVentas = new TarjetaVentas();
         let venta1 = new Venta("05/03/2019",100, 50);

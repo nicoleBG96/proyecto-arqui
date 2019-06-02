@@ -1,5 +1,5 @@
-import { AsistenciaDiaria} from '../CalculadorasDeMontos/EmpleadoTiempoParcial/AsistenciaDiaria';
-import { TarjetaDeAsistencias } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/TarjetaDeAsistencias'
+import { AsistenciaDiaria} from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria';
+import { TarjetaDeAsistencias } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias'
 
 describe ("TarjetaDeAsistencias", function(){
     test("dada una tarjeta de asintencia vacia, deberia devolver 0 horas trabajadas", function () {

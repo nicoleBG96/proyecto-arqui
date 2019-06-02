@@ -1,4 +1,4 @@
-import { VerificadorFechaDePagoEmpleadoPorComision } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
+import { VerificadorFechaDePagoEmpleadoPorComision } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
 
 describe ("VerificadorFechaDePagoEmpleadoPorComision", function(){
     test("dado un verificador de fecha de pago de empleado por comision, al recibir la fecha 10/05/2019, deberia devolverme que es el ultimo dia habil del mes", function () {

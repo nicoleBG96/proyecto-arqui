@@ -1,5 +1,5 @@
-import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
-import { TarjetaVentas } from '../CalculadorasDeMontos/EmpleadoComision/TarjetaVentas'
+import { Venta } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta';
+import { TarjetaVentas } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas'
 
 describe ("TarjetaVentas", function(){
     test("dada una tarjeta de ventas vacia, deberia devolver que la comision total es igual a 0", function () {

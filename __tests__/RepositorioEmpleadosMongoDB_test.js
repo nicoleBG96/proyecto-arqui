@@ -1,4 +1,4 @@
-import { RepositorioEmpleadosMongoDB } from '../Repositorios/RepositorioEmpleadosMongoDB';
+import { RepositorioEmpleadosMongoDB } from '../dominio/PuertoDeEntidades/RepositorioEmpleadosMongoDB';
 
 describe("RepositorioEmpleadoMongoDB", function () {
     test("Dado un servicio de empleados MongoDB de insertar al empleado Fijo Albert Hofmann con CI 8798672 este deberia guardarse", function () {

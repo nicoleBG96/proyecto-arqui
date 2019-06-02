@@ -1,20 +1,20 @@
-import { Empleado } from '../dominio/Entidades/Empleado';
-import { CalculadoraMontosEmpleadoFijo } from '../CalculadorasDeSalario/CalculadoraMontosEmpleadoFijo';
-import { CalculadoraMontosEmpleadoParcial } from '../CalculadorasDeSalario/CalculadoraMontosEmpleadoParcial';
-import { CalculadoraMontosEmpleadoPorComision } from '../CalculadorasDeSalario/CalculadoraMontosEmpleadoPorComision';
-import { VerificadorFechaDePagoEmpleadoFijo } from '../dominio/Entidades/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
-import { VerificadorFechaDePagoEmpleadoParcial } from '../dominio/Entidades/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
-import { VerificadorFechaDePagoEmpleadoPorComision } from '../dominio/Entidades/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
-import { AsistenciaDiaria } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria';
-import { TarjetaDeAsistencias } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias';
-import { Venta } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoComision/Venta';
-import { TarjetaVentas } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas';
-import { NotificadorEmail } from '../dominio/Entidades/NotificadoresDePago/NotificadorEmail';
-import { PagoPorDeposito } from '../dominio/Entidades/MetodoDePago/PagoPorDeposito';
+import { Empleado } from '../dominio/Entidades/Empleado/Empleado';
+import { CalculadoraSalarioEmpleadoFijo } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo';
+import { CalculadoraSalarioEmpleadoParcial } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial';
+import { CalculadoraSalarioEmpleadoPorComision } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision';
+import { VerificadorFechaDePagoEmpleadoFijo } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
+import { VerificadorFechaDePagoEmpleadoParcial } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
+import { VerificadorFechaDePagoEmpleadoPorComision } from '../dominio/Entidades/Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
+import { AsistenciaDiaria } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria';
+import { TarjetaDeAsistencias } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias';
+import { Venta } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta';
+import { TarjetaVentas } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas';
+import { NotificadorEmail } from '../dominio/Entidades/Empleado/NotificadoresDePago/NotificadorEmail';
+import { PagoPorDeposito } from '../dominio/Entidades/Empleado/MetodoDePago/PagoPorDeposito';
 
 describe("Empleado", function () {
     test("dado un empleado fijo que gana 1100 al calcular su salario deberia devolver 1100", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date());
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -24,7 +24,7 @@ describe("Empleado", function () {
 
     test("dada un empleado parcial que gana 100 por hora y no tiene horas trabajadadas, al calcular su salario deberia ganar devolver 0", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoParcial(100, tarjetaDeAsistencias);
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoParcial(100, tarjetaDeAsistencias);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -36,7 +36,7 @@ describe("Empleado", function () {
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         let asistenciaDiaria = new AsistenciaDiaria("30/03/2019", 9, 12);
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria);
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoParcial(100, tarjetaDeAsistencias);
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoParcial(100, tarjetaDeAsistencias);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -52,7 +52,7 @@ describe("Empleado", function () {
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria2);
         let asistenciaDiaria3 = new AsistenciaDiaria("30/03/2019", 9, 13);
         tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria3);
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoParcial(100, tarjetaDeAsistencias);
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoParcial(100, tarjetaDeAsistencias);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -62,7 +62,7 @@ describe("Empleado", function () {
 
     test("dado un empleado por comision con sueldo basico de 100 y sin ninguna venta registrada, al calcular su salario deberia ganar devolver 100", function () {
         let tarjetaVentas = new TarjetaVentas();
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoPorComision(100, tarjetaVentas);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -74,7 +74,7 @@ describe("Empleado", function () {
         let tarjetaVentas = new TarjetaVentas();
         let venta = new Venta("05/03/2019",1000, 50);
         tarjetaVentas.registrarVenta(venta);
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoPorComision(100, tarjetaVentas);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -90,7 +90,7 @@ describe("Empleado", function () {
         tarjetaVentas.registrarVenta(venta2);
         let venta3 = new Venta("05/03/2019", 600, 50);
         tarjetaVentas.registrarVenta(venta3);
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoPorComision(100, tarjetaVentas);
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoPorComision(100, tarjetaVentas);
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
