@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var InteractorCrearEmpleado = require('../Interactores/InteractorCrearEmpleado').InteractorCrearEmpleado;
-var RepositorioEmpleadosMongoDB = require('../Repositorios/RepositorioEmpleadosMongoDB').RepositorioEmpleadosMongoDB;
-var CrearEmpleadoPeticion = require('../Modeladores/CrearEmpleadoPeticion').CrearEmpleadoPeticion;
-var CrearEmpleadoRespuesta = require('../Modeladores/CrearEmpleadoRespuesta').CrearEmpleadoRespuesta;
+var InteractorCrearEmpleado = require('../../dominio/Interactores/InteractorCrearEmpleado').InteractorCrearEmpleado;
+var RepositorioEmpleadosMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioEmpleadosMongoDB').RepositorioEmpleadosMongoDB;
+var CrearEmpleadoPeticion = require('../../dominio/DTO/CrearEmpleadoPeticion').CrearEmpleadoPeticion;
+var CrearEmpleadoRespuesta = require('../../dominio/DTO/CrearEmpleadoRespuesta').CrearEmpleadoRespuesta;
 
 router.get('/', function (req, res) {
     res.send("POST-ALL");

@@ -1,16 +1,16 @@
-import { Empleado } from '../Entidades/Empleado';
-import { CalculadoraMontosEmpleadoFijo } from '../CalculadorasDeMontos/CalculadoraMontosEmpleadoFijo';
-import { CalculadoraMontosEmpleadoParcial } from '../CalculadorasDeMontos/CalculadoraMontosEmpleadoParcial';
-import { CalculadoraMontosEmpleadoPorComision } from '../CalculadorasDeMontos/CalculadoraMontosEmpleadoPorComision';
-import { VerificadorFechaDePagoEmpleadoFijo } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
-import { VerificadorFechaDePagoEmpleadoParcial } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
-import { VerificadorFechaDePagoEmpleadoPorComision } from '../VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
-import { AsistenciaDiaria } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/AsistenciaDiaria';
-import { TarjetaDeAsistencias } from '../CalculadorasDeMontos/EmpleadoTiempoParcial/TarjetaDeAsistencias';
-import { Venta } from '../CalculadorasDeMontos/EmpleadoComision/Venta';
-import { TarjetaVentas } from '../CalculadorasDeMontos/EmpleadoComision/TarjetaVentas';
-import { NotificadorEmail } from '../NotificadoresDePago/NotificadorEmail';
-import { PagoPorDeposito } from '../MetodoDePago/PagoPorDeposito';
+import { Empleado } from '../dominio/Entidades/Empleado';
+import { CalculadoraMontosEmpleadoFijo } from '../CalculadorasDeSalario/CalculadoraMontosEmpleadoFijo';
+import { CalculadoraMontosEmpleadoParcial } from '../CalculadorasDeSalario/CalculadoraMontosEmpleadoParcial';
+import { CalculadoraMontosEmpleadoPorComision } from '../CalculadorasDeSalario/CalculadoraMontosEmpleadoPorComision';
+import { VerificadorFechaDePagoEmpleadoFijo } from '../dominio/Entidades/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
+import { VerificadorFechaDePagoEmpleadoParcial } from '../dominio/Entidades/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
+import { VerificadorFechaDePagoEmpleadoPorComision } from '../dominio/Entidades/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
+import { AsistenciaDiaria } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria';
+import { TarjetaDeAsistencias } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias';
+import { Venta } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoComision/Venta';
+import { TarjetaVentas } from '../dominio/Entidades/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas';
+import { NotificadorEmail } from '../dominio/Entidades/NotificadoresDePago/NotificadorEmail';
+import { PagoPorDeposito } from '../dominio/Entidades/MetodoDePago/PagoPorDeposito';
 
 describe("Empleado", function () {
     test("dado un empleado fijo que gana 1100 al calcular su salario deberia devolver 1100", function () {

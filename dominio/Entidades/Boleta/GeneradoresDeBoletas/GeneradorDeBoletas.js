@@ -1,4 +1,4 @@
-import { Boleta } from '../Entidades/Boleta';
+import { Boleta } from '../Boleta';
 
 export class GeneradorDeBoletas {
     constructor() {
