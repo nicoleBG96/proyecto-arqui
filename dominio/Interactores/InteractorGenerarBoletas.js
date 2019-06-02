@@ -1,4 +1,4 @@
-import { FabricaDeEmpleados } from '../Entidades/Empleado/FabricaDeEmpleados';
+var FabricaDeEmpleados  = require('../Entidades/Empleado/FabricaDeEmpleados').FabricaDeEmpleados;
 
 class InteractorGenerarBoletas {
     constructor(repositorioEmpleados, repositorioBoletas) {

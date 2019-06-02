@@ -1,8 +1,9 @@
-import { FabricaDeCalculadoras } from '../Empleado/FabricaDeCalculadoras';
-import { FabricaDeVerificadoresFechaDePago } from '../Empleado/FabricaDeVerificadoresFechaDePago';
-import { FabricaMetodosDePago } from '../Empleado/FabricaMetodosDePago';
-import { FabricaNotificadores } from '../Empleado/FabricaNotificadores';
-import { Empleado } from '../Empleado/Empleado';
+import { FabricaDeCalculadoras } from './FabricaDeCalculadoras';
+import { FabricaDeVerificadoresFechaDePago } from './FabricaDeVerificadoresFechaDePago';
+import { FabricaMetodosDePago } from './FabricaMetodosDePago';
+import { FabricaNotificadores } from './FabricaNotificadores';
+import { Empleado } from './Empleado';
+
 
 class FabricaDeEmpleados {
     constructor() {
