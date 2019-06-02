@@ -3,6 +3,10 @@ export class TarjetaVentas {
         this.ventas = [];
     }
 
+    constructor(ventas) {
+        this.ventas = ventas;
+    }
+
     registrarVenta(venta) {
         this.ventas.push(venta);
     }

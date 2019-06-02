@@ -2,9 +2,15 @@ export class TarjetaDeAsistencias{
     constructor(){
         this.asistencias = [];
     }
+
+    constructor(asistencias){
+        this.asistencias = asistencias;
+    }
+
     registrarAsistencia(asistenciaDiaria){
         this.asistencias.push(asistenciaDiaria);
     }
+
     calcularHorasTrabajadas(){
         let horasTrabajadas = 0;
         this.asistencias.forEach(asistencia => {

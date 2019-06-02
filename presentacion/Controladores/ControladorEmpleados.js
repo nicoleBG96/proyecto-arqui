@@ -1,12 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var InteractorCrearEmpleado = require('../../dominio/Interactores/InteractorCrearEmpleado').InteractorCrearEmpleado;
 var RepositorioEmpleadosMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioEmpleadosMongoDB').RepositorioEmpleadosMongoDB;
+var InteractorCrearEmpleado = require('../../dominio/Interactores/InteractorCrearEmpleado').InteractorCrearEmpleado;
 var CrearEmpleadoPeticion = require('../../dominio/DTO/CrearEmpleadoPeticion').CrearEmpleadoPeticion;
 var CrearEmpleadoRespuesta = require('../../dominio/DTO/CrearEmpleadoRespuesta').CrearEmpleadoRespuesta;
+var InteractorRecuperarEmpleado = require('../../dominio/Interactores/InteractorRecuperarEmpleado').InteractorRecuperarEmpleado;
+var RecuperarEmpleadoPeticion = require('../../dominio/DTO/RecuperarEmpleadoPeticion').RecuperarEmpleadoPeticion;
+var RecuperarEmpleadoRespuesta = require('../../dominio/DTO/RecuperarEmpleadoRespuesta').RecuperarEmpleadoRespuesta;
 
-router.get('/', function (req, res) {
-    res.send("POST-ALL");
+router.get('/', function (peticion, respuesta) {
+    let recuperarEmpleadoPeticion = new CrearEmpleadoPeticion(peticion);
+    let recuperarTodosLosEmpleados = new InteractorRecuperarEmpleado(new RepositorioEmpleadosMongoDB());
+    recuperarTodosLosEmpleados.recuperarEmpleados()
+        .then(resp => {
+            let recuperarEmpleadoRespuesta = new RecuperarEmpleadoRespuesta(resp);
+            respuesta.send(recuperarEmpleadoRespuesta.darFormato());
+        }).catch(err => {
+            console.log(err)
+        });
 });
 
 router.get('/:_id', function (req, res) {
