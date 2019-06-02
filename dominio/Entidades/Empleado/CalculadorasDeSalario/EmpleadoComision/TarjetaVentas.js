@@ -7,6 +7,10 @@ export class TarjetaVentas {
         this.ventas.push(venta);
     }
 
+    registrarVentas(ventas){
+        this.ventas = ventas;
+    }
+    
     calcularTotalDeComisiones() {
         let comisionTotal = 0;
         this.ventas.forEach(venta => {

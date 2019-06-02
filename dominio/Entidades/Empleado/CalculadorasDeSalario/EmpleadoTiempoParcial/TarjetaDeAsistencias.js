@@ -7,6 +7,10 @@ export class TarjetaDeAsistencias{
         this.asistencias.push(asistenciaDiaria);
     }
 
+    registrarAsistencias(asistencias){
+        this.asistencias = asistencias;
+    }
+
     calcularHorasTrabajadas(){
         let horasTrabajadas = 0;
         this.asistencias.forEach(asistencia => {

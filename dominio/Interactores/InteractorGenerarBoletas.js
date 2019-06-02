@@ -1,3 +1,5 @@
+import { FabricaDeEmpleados } from '../Entidades/Empleado/FabricaDeEmpleados';
+
 class InteractorGenerarBoletas {
     constructor(repositorioEmpleados, repositorioBoletas) {
         this.repositorioEmpleados = repositorioEmpleados;
@@ -17,7 +19,7 @@ class InteractorGenerarBoletas {
     }
 
     crearEmpleados(listaDeEmpleados){
-        let creadorDeEmpleados = new creadorDeEmpleados();
+        let creadorDeEmpleados = new FabricaDeEmpleados();
         let empleados = [];
         let empleado;
         listaDeEmpleados.forEach(datosEmpleado => {

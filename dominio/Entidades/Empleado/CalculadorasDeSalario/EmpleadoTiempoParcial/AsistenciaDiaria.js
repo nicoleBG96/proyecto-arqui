@@ -4,6 +4,7 @@ export class AsistenciaDiaria{
         this.horaIngreso = horaIngreso;
         this.horaSalida = horaSalida;
     }
+    
     calcularHorasTrabajadas(){
         return this.horaSalida - this.horaIngreso;
     }

@@ -20,7 +20,7 @@ class RepositorioVentasMongoDB {
         })
     }
 
-    recuperarAsistenciasDeEmpleado(codigoEmpleado) {
+    recuperarVentasDeEmpleado(codigoEmpleado) {
         let self = this;
         return new Promise(function (resolve, reject) {
             MongoClient.connect(self.url, { useNewUrlParser: true }, function (err, daseDeDatos) {
