@@ -3,10 +3,6 @@ export class TarjetaDeAsistencias{
         this.asistencias = [];
     }
 
-    constructor(asistencias){
-        this.asistencias = asistencias;
-    }
-
     registrarAsistencia(asistenciaDiaria){
         this.asistencias.push(asistenciaDiaria);
     }

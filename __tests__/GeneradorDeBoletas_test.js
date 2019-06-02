@@ -93,7 +93,7 @@ describe("GeneradorDeBoletas", function () {
     });
 
     test("dada una lista de 3 empleados a la hora de generar sus boleta el dia 5/31/2019 que les corresponde, deberia generar sus boletas con todos los datos respectivos", function () {
-        let calculadoraDeSalario1 = new CalculadoraSalarioEmpleadoFijo(5000, 10, 13);
+        let calculadoraDeSalario1 = new CalculadoraSalarioEmpleadoFijo(5000, new Date());
         let verificadorFechaDePagoEmpleadoFijo1 = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador1 = new NotificadorEmail();
         let metodoDePago1 = new PagoPorDeposito();
