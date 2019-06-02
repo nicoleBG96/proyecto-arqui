@@ -14,30 +14,12 @@ import { PagoPorDeposito } from '../MetodoDePago/PagoPorDeposito';
 
 describe("Empleado", function () {
     test("dado un empleado fijo que gana 1100 al calcular su salario deberia devolver 1100", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, 0, 0);
+        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, new Date());
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
         let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
         expect(empleado.calcularSalarioAPagar()).toBe(1100);
-    });
-
-    test("dado un empleado fijo que gana 1100 al cual se le descuenta un 10% al calcular su salario a pagar deberia devolver 990", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, 10, 0);
-        let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
-        let notificador = new NotificadorEmail();
-        let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
-        expect(empleado.calcularSalarioAPagar()).toBe(990);
-    });
-
-    test("dado un empleado fijo que gana 1100 al cual se le descuente un 10% y el cual aporta 20% al calcular su salario deberia devolver 770", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, 10, 20);
-        let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
-        let notificador = new NotificadorEmail();
-        let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
-        expect(empleado.calcularSalarioAPagar()).toBe(770);
     });
 
     test("dada un empleado parcial que gana 100 por hora y no tiene horas trabajadadas, al calcular su salario deberia ganar devolver 0", function () {

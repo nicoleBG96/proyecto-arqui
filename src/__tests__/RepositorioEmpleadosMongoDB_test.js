@@ -1,10 +1,8 @@
-import { ServicioEmpleadosMongoDB } from '../Repositorios/Servicios/ServicioEmpledosMongoDB';
-import { RepositorioEmpleados } from '../Repositorios/RepositorioEmpleados';
+import { RepositorioEmpleadosMongoDB } from '../Repositorios/RepositorioEmpleadosMongoDB';
 
 describe("RepositorioEmpleadoMongoDB", function () {
     test("Dado un servicio de empleados MongoDB de insertar al empleado Fijo Albert Hofmann con CI 8798672 este deberia guardarse", function () {
-        let servicioEmpleadosMongoDB = new ServicioEmpleadosMongoDB();
-        let repositorioEmpleados = new RepositorioEmpleados(servicioEmpleadosMongoDB);
+        let repositorioEmpleados = new RepositorioEmpleadosMongoDB();
         let empleado = { 'tipo': 'fijo', 'ci': 8798672, 'nombre': 'Albert', 'apellido': 'Hofmann' };
         repositorioEmpleados.insertarEmpleado(empleado)
             .then(respuesta => {

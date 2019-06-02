@@ -16,7 +16,7 @@ import { PagoPorDeposito } from '../MetodoDePago/PagoPorDeposito';
 
 describe("GeneradorDeBoletas", function () {
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia decir que si se puede generar su boleta", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, 10, 10);
+        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(1100, new Date());
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -27,7 +27,7 @@ describe("GeneradorDeBoletas", function () {
     });
 
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia generar su boleta con todos los datos respectivos", function () {
-        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(5000, 10, 13);
+        let calculadoraDeSalario = new CalculadoraMontosEmpleadoFijo(5000, new Date());
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -40,12 +40,7 @@ describe("GeneradorDeBoletas", function () {
         Codigo: T-123\n
         Ci: 8798415\n
         Cargo: Champion\n
-        Salario Basico: 5000\n
-        Descuento: 10%\n
-        Descuento Total: 500\n
-        Aportes: 13%\n
-        Total Aportes: 650\n
-        Salario Total: 3850\n`);
+        Salario Total: 5000\n`);
     });
 
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia generar su boleta con todos los datos respectivos", function () {
@@ -69,11 +64,6 @@ describe("GeneradorDeBoletas", function () {
         Codigo: T-124\n
         Ci: 8798416\n
         Cargo: Sub Gerente\n
-        Salario Basico: 1000\n
-        Descuento: 0%\n
-        Descuento Total: 0\n
-        Aportes: 0%\n
-        Total Aportes: 0\n
         Salario Total: 1000\n`);
     });
 
@@ -99,11 +89,6 @@ describe("GeneradorDeBoletas", function () {
         Codigo: T-125\n
         Ci: 8798417\n
         Cargo: Ingeniero\n
-        Salario Basico: 750\n
-        Descuento: 0%\n
-        Descuento Total: 0\n
-        Aportes: 0%\n
-        Total Aportes: 0\n
         Salario Total: 750\n`);
     });
 
@@ -156,23 +141,13 @@ describe("GeneradorDeBoletas", function () {
         Codigo: T-123\n
         Ci: 8798415\n
         Cargo: Champion\n
-        Salario Basico: 5000\n
-        Descuento: 10%\n
-        Descuento Total: 500\n
-        Aportes: 13%\n
-        Total Aportes: 650\n
-        Salario Total: 3850\n`);
+        Salario Total: 5000\n`);
         expect(boletas[1]).toBe(`Boleta de Pago\n
         Fecha: Fri May 31 2019 00:00:00 GMT-0400 (Bolivia Time)\n
         Empleado: Laura Meneses\n
         Codigo: T-124\n
         Ci: 8798416\n
         Cargo: Sub Gerente\n
-        Salario Basico: 1000\n
-        Descuento: 0%\n
-        Descuento Total: 0\n
-        Aportes: 0%\n
-        Total Aportes: 0\n
         Salario Total: 1000\n`);
         expect(boletas[2]).toBe(`Boleta de Pago\n
         Fecha: Fri May 31 2019 00:00:00 GMT-0400 (Bolivia Time)\n
@@ -180,11 +155,6 @@ describe("GeneradorDeBoletas", function () {
         Codigo: T-125\n
         Ci: 8798417\n
         Cargo: Ingeniero\n
-        Salario Basico: 750\n
-        Descuento: 0%\n
-        Descuento Total: 0\n
-        Aportes: 0%\n
-        Total Aportes: 0\n
         Salario Total: 750\n`);
     });
 })

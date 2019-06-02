@@ -1,8 +1,7 @@
 let MongoClient = require('mongodb').MongoClient;
 
-export class RepositorioEmpleados {
-    constructor(servicio) {
-        this.servicio = servicio;
+class RepositorioEmpleadosMongoDB {
+    constructor() {
         this.nombre = "arquiproyecto";
         this.url = "mongodb://localhost:27017/";
     }
@@ -10,14 +9,15 @@ export class RepositorioEmpleados {
     insertarEmpleado(empleado) {
         let self = this;
         return new Promise(function (resolve, reject) {
-            resolve(
-                self.servicio.insertarEmpleado(empleado)
-                    .then(respuesta => {
-                        return respuesta;
-                    }).catch(err => {
-                        console.log(err)
-                    }));
-        });
+            MongoClient.connect(self.url, { useNewUrlParser: true }, function (error, daseDeDatos) {
+                let daseDeDatosAbierta = daseDeDatos.db(self.nombre);
+                daseDeDatosAbierta.collection("empleados").insertOne(empleado, function (error, respuesta) {
+                    if (error) throw error;
+                    resolve('Empleado insertado satisfactoriamente');
+                    daseDeDatos.close();
+                });
+            });
+        })
     }
 
     // recuperarEmpleado(carnet) {
@@ -73,3 +73,4 @@ export class RepositorioEmpleados {
 }
 
 
+module.exports = { RepositorioEmpleadosMongoDB };

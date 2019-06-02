@@ -31,26 +31,6 @@ export class Empleado {
         return this.verificadorFechaDePago.esFechaDePago(fecha);
     }
 
-    calcularSalarioBasico() {
-        return this.calculadoraDeMontos.calcularSalarioBasico();
-    }
-
-    obtenerPorcentajeDescuento() {
-        return this.calculadoraDeMontos.obtenerPorcentajeDescuento();
-    }
-
-    calcularDescuentoTotal() {
-        return this.calculadoraDeMontos.calcularDescuentoTotal();
-    }
-
-    obtenerPorcentajeAportes() {
-        return this.calculadoraDeMontos.obtenerPorcentajeAportes();
-    }
-
-    calcularAportesTotales() {
-        return this.calculadoraDeMontos.calcularAportesTotales();
-    }
-
     calcularSalarioAPagar() {
         return this.calculadoraDeMontos.calcularSalarioAPagar();
     }

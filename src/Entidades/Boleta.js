@@ -6,11 +6,6 @@ export class Boleta{
 
     obtenerDatosDeBoleta(){
         let datosBoleta = {
-            salarioBasico : this.empleado.calcularSalarioBasico(),
-            descuentoPorcentaje : this.empleado.obtenerPorcentajeDescuento(),
-            descuentoTotal : this.empleado.calcularDescuentoTotal(),
-            aportesPorcentaje : this.empleado.obtenerPorcentajeAportes(),
-            aportesTotales : this.empleado.calcularAportesTotales(),
             salarioAPagar : this.empleado.calcularSalarioAPagar()
         }
         return datosBoleta;
@@ -33,11 +28,6 @@ export class Boleta{
         Codigo: ${datosEmpleado.codigoEmpleado}\n
         Ci: ${datosEmpleado.ciEmpleado}\n
         Cargo: ${datosEmpleado.cargoEmpleado}\n
-        Salario Basico: ${datosBoleta.salarioBasico}\n
-        Descuento: ${datosBoleta.descuentoPorcentaje}%\n
-        Descuento Total: ${datosBoleta.descuentoTotal}\n
-        Aportes: ${datosBoleta.aportesPorcentaje}%\n
-        Total Aportes: ${datosBoleta.aportesTotales}\n
         Salario Total: ${datosBoleta.salarioAPagar}\n`;
     }
 
