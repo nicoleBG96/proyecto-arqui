@@ -7,6 +7,9 @@ var CrearEmpleadoRespuesta = require('../../dominio/DTO/CrearEmpleadoRespuesta')
 var InteractorRecuperarEmpleado = require('../../dominio/Interactores/InteractorRecuperarEmpleado').InteractorRecuperarEmpleado;
 var RecuperarEmpleadoPeticion = require('../../dominio/DTO/RecuperarEmpleadoPeticion').RecuperarEmpleadoPeticion;
 var RecuperarEmpleadoRespuesta = require('../../dominio/DTO/RecuperarEmpleadoRespuesta').RecuperarEmpleadoRespuesta;
+var InteractorActualizarEmpleado = require('../../dominio/Interactores/InteractorActualizarEmpleado').InteractorActualizarEmpleado;
+var ActualizarEmpleadoPeticion = require('../../dominio/DTO/ActualizarEmpleadoPeticion').ActualizarEmpleadoPeticion;
+var ActualizarEmpleadoRespuesta = require('../../dominio/DTO/ActualizarEmpleadoRespuesta').ActualizarEmpleadoRespuesta;
 
 router.get('/', function (peticion, respuesta) {
     let recuperarEmpleadoPeticion = new CrearEmpleadoPeticion(peticion);
@@ -18,10 +21,6 @@ router.get('/', function (peticion, respuesta) {
         }).catch(err => {
             console.log(err)
         });
-});
-
-router.get('/:_id', function (req, res) {
-    res.send("GET");
 });
 
 router.post('/', function (peticion, respuesta) {
@@ -37,12 +36,17 @@ router.post('/', function (peticion, respuesta) {
         });
 });
 
-router.put('/', function (req, res) {
-    res.send("PUT");
-});
-
-router.delete('/:_id', function (req, res) {
-    res.send("DELETE");
+router.put('/', function (peticion, respuesta) {
+    let actualizarEmpleadoPeticion = new actualizarEmpleadoPeticion(peticion);
+    let empleado = actualizarEmpleadoPeticion.darFormato();
+    let actualizarEmpleado = new InteractorActualizarEmpleado(new RepositorioEmpleadosMongoDB());
+    actualizarEmpleado.actualizarEmpleado(empleado)
+        .then(resp => {
+            let actualizarEmpleadoRespuesta = new ActualizarEmpleadoRespuesta(resp);
+            respuesta.send(actualizarEmpleadoRespuesta.darFormato());
+        }).catch(err => {
+            console.log(err)
+        });
 });
 
 module.exports = router;
