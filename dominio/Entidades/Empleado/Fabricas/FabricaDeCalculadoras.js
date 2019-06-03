@@ -1,9 +1,8 @@
-import { CalculadoraSalarioEmpleadoFijo } from '../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo';
-import { CalculadoraSalarioEmpleadoParcial } from '../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial';
-import { CalculadoraSalarioEmpleadoPorComision } from '../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision';
-import { ConstructorTarjetaDeAsistencias } from '../../PuertoDeEntidades/Constructores/ConstructorTarjetaDeAsistencias';
-import { ConstructorTarjetaDeVentas } from '../../PuertoDeEntidades/Constructores/ConstructorTarjetaDeVentas';
-
+let CalculadoraSalarioEmpleadoFijo = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo').CalculadoraSalarioEmpleadoFijo;
+let CalculadoraSalarioEmpleadoParcial = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial').CalculadoraSalarioEmpleadoParcial;
+let CalculadoraSalarioEmpleadoPorComision = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision').CalculadoraSalarioEmpleadoPorComision;
+let ConstructorTarjetaDeAsistencias = require('../../../PuertoDeEntidades/Constructores/ConstructorTarjetaDeAsistencias').ConstructorTarjetaDeAsistencias;
+let ConstructorTarjetaDeVentas = require('../../../PuertoDeEntidades/Constructores/ConstructorTarjetaDeVentas').ConstructorTarjetaDeVentas;
 
 class FabricaDeCalculadoras {
     constructor() {

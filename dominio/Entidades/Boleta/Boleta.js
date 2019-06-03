@@ -1,4 +1,4 @@
-export class Boleta{
+class Boleta{
     constructor(empleado, fechaDeEmision){
         this.empleado = empleado;
         this.fechaDeEmision = fechaDeEmision;
@@ -35,3 +35,5 @@ export class Boleta{
         return this.renderizarBoleta(this.obtenerDatosDeBoleta(), this.obtenerDatosDelEmpleado());
     }
 }
+
+module.exports = { Boleta };

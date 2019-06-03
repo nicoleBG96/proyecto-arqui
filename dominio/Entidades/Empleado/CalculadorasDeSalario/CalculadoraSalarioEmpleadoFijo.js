@@ -1,4 +1,4 @@
-export class CalculadoraSalarioEmpleadoFijo {
+class CalculadoraSalarioEmpleadoFijo {
     constructor(salario, fechaInicio) {
         this.salario = salario;
         this.fechaInicio = fechaInicio;
@@ -81,3 +81,5 @@ export class CalculadoraSalarioEmpleadoFijo {
     }
     
 }
+
+module.exports = { CalculadoraSalarioEmpleadoFijo };

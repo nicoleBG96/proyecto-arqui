@@ -1,6 +1,6 @@
-import { Boleta } from '../Boleta';
+let Boleta = require('../Boleta').Boleta;
 
-export class GeneradorDeBoletas {
+class GeneradorDeBoletas {
     constructor() {
     }
 
@@ -25,3 +25,5 @@ export class GeneradorDeBoletas {
         return boletas;
     }
 }
+
+module.exports = { GeneradorDeBoletas };

@@ -1,6 +1,6 @@
-import { PagoPorCheque } from '../Empleado/MetodoDePago/PagoPorCheque';
-import { PagoPorDeposito } from '../Empleado/MetodoDePago/PagoPorDeposito';
-import { PagoPorEfectivo } from '../Empleado/MetodoDePago/PagoPorEfectivo';
+let PagoPorCheque = require('../../Empleado/MetodoDePago/PagoPorCheque').PagoPorCheque;
+let PagoPorDeposito = require('../../Empleado/MetodoDePago/PagoPorDeposito').PagoPorDeposito;
+let PagoPorEfectivo = require('../../Empleado/MetodoDePago/PagoPorEfectivo').PagoPorEfectivo;
 
 class FabricaMetodosDePago{
     constructor(){

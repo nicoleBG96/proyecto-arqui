@@ -1,8 +1,8 @@
-import { FabricaDeCalculadoras } from './FabricaDeCalculadoras';
-import { FabricaDeVerificadoresFechaDePago } from './FabricaDeVerificadoresFechaDePago';
-import { FabricaMetodosDePago } from './FabricaMetodosDePago';
-import { FabricaNotificadores } from './FabricaNotificadores';
-import { Empleado } from './Empleado';
+let FabricaDeCalculadoras = require('./FabricaDeCalculadoras').FabricaDeCalculadoras;
+let FabricaDeVerificadoresFechaDePago = require('./FabricaDeVerificadoresFechaDePago').FabricaDeVerificadoresFechaDePago;
+let FabricaMetodosDePago = require('./FabricaMetodosDePago').FabricaMetodosDePago;
+let FabricaNotificadores = require('./FabricaNotificadores').FabricaNotificadores;
+let Empleado = require('../Empleado').Empleado;
 
 
 class FabricaDeEmpleados {

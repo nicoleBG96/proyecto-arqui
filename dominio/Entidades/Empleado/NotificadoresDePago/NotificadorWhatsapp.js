@@ -1,4 +1,4 @@
-export class NotificadorWhatsapp{
+class NotificadorWhatsapp{
     constructor(notificador){
         this.notificador = notificador;
     }
@@ -8,3 +8,5 @@ export class NotificadorWhatsapp{
         console.log("Notificacion enviada por Whatsapp");
     }
 }
+
+module.exports = { NotificadorWhatsapp };

@@ -1,4 +1,4 @@
-export class TarjetaDeAsistencias{
+class TarjetaDeAsistencias{
     constructor(){
         this.asistencias = [];
     }
@@ -19,3 +19,5 @@ export class TarjetaDeAsistencias{
         return horasTrabajadas;
     }
 }
+
+module.exports = { TarjetaDeAsistencias };

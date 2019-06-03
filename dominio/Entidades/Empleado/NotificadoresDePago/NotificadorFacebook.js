@@ -1,4 +1,4 @@
-export class NotificadorFacebook {
+class NotificadorFacebook {
     constructor(notificador){
         this.notificador = notificador;
     }
@@ -8,3 +8,5 @@ export class NotificadorFacebook {
         console.log("Notificacion enviada por Facebook");
     }
 }
+
+module.exports = { NotificadorFacebook };

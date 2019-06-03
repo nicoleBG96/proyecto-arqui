@@ -1,4 +1,4 @@
-export class VerificadorFechaDePagoEmpleadoParcial {
+class VerificadorFechaDePagoEmpleadoParcial {
     constructor() {
 
     }
@@ -11,3 +11,5 @@ export class VerificadorFechaDePagoEmpleadoParcial {
         return esViernes(fecha);
     }
 }
+
+module.exports = {  VerificadorFechaDePagoEmpleadoParcial };

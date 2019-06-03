@@ -1,4 +1,4 @@
-export class CalculadoraSalarioEmpleadoParcial {
+class CalculadoraSalarioEmpleadoParcial {
     constructor(salarioPorHora, tarjetaDeAsistencia) {
         this.salarioPorHora = salarioPorHora;
         this.tarjetaDeAsistencia = tarjetaDeAsistencia;
@@ -12,3 +12,5 @@ export class CalculadoraSalarioEmpleadoParcial {
         return this.tarjetaDeAsistencia.calcularHorasTrabajadas();
     }
 }
+
+module.exports = { CalculadoraSalarioEmpleadoParcial };

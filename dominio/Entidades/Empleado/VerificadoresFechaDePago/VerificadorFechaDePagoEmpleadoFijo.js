@@ -1,4 +1,4 @@
-export class VerificadorFechaDePagoEmpleadoFijo {
+class VerificadorFechaDePagoEmpleadoFijo {
     constructor() {
 
     }
@@ -50,3 +50,5 @@ export class VerificadorFechaDePagoEmpleadoFijo {
         return false;
     }
 }
+
+module.exports = { VerificadorFechaDePagoEmpleadoFijo };

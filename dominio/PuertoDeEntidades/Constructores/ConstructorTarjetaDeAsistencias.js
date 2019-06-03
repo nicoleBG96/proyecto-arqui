@@ -1,6 +1,6 @@
-import { AsistenciaDiaria } from '../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria';
-import { TarjetaDeAsistencias } from '../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias';
-import { RepositorioAsistenciasMongoDB } from '../../PuertoDeEntidades/RepositorioAsistenciasMongoDB';
+let AsistenciaDiaria = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria').AsistenciaDiaria;
+let TarjetaDeAsistencias = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias').TarjetaDeAsistencias;
+let RepositorioAsistenciasMongoDB = require('../../PuertoDeEntidades/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
 
 class ConstructorTarjetaDeAsistencias{
     constructor(empleado){

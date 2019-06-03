@@ -1,4 +1,4 @@
-export class PagoPorEfectivo{
+class PagoPorEfectivo{
     constructor(){
 
     }
@@ -7,3 +7,5 @@ export class PagoPorEfectivo{
         
     }
 }
+
+module.exports = { PagoPorEfectivo };

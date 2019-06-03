@@ -1,6 +1,6 @@
-import { Venta } from '../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta';
-import { TarjetaVentas } from '../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas';
-import { RepositorioVentasMongoDB } from '../../PuertoDeEntidades/RepositorioVentasMongoDB';
+let Venta = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta').Venta;
+let TarjetaVentas = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas').TarjetaDeAsistencias;
+let RepositorioVentasMongoDB = require('../../PuertoDeEntidades/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
 
 class ConstructorTarjetaDeVentas{
     constructor(empleado){

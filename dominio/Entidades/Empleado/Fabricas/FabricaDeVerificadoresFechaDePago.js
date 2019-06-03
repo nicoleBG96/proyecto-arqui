@@ -1,6 +1,6 @@
-import { VerificadorFechaDePagoEmpleadoFijo } from '../Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo';
-import { VerificadorFechaDePagoEmpleadoParcial } from '../Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial';
-import { VerificadorFechaDePagoEmpleadoPorComision } from '../Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision';
+let VerificadorFechaDePagoEmpleadoFijo = require('../../Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoFijo').VerificadorFechaDePagoEmpleadoFijo;
+let VerificadorFechaDePagoEmpleadoParcial = require('../../Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoParcial').VerificadorFechaDePagoEmpleadoParcial;
+let VerificadorFechaDePagoEmpleadoPorComision = require('../../Empleado/VerificadoresFechaDePago/VerificadorFechaDePagoEmpleadoPorComision').VerificadorFechaDePagoEmpleadoPorComision;
 
 class FabricaDeVerificadoresFechaDePago{
     constructor(){

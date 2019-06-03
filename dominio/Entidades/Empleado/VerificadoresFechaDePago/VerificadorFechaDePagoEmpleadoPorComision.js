@@ -1,4 +1,4 @@
-export class VerificadorFechaDePagoEmpleadoPorComision {
+class VerificadorFechaDePagoEmpleadoPorComision {
     constructor(fechaInicioTrabajo) {
         this.fechaInicioTrabajo = fechaInicioTrabajo;
     }
@@ -32,3 +32,5 @@ export class VerificadorFechaDePagoEmpleadoPorComision {
         return false;
     }
 }
+
+module.exports = { VerificadorFechaDePagoEmpleadoPorComision };

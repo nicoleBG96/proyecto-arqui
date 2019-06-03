@@ -1,7 +1,7 @@
-import { Notificador } from '../Empleado/NotificadoresDePago/Notificador';
-import { NotificadorEmail } from '../Empleado/NotificadoresDePago/NotificadorEmail';
-import { NotificadorFacebook } from '../Empleado/NotificadoresDePago/NotificadorFacebook';
-import { NotificadorWhatsapp } from '../Empleado/NotificadoresDePago/NotificadorWhatsapp';
+let Notificador = require('../../Empleado/NotificadoresDePago/Notificador').Notificador;
+let NotificadorEmail = require('../../Empleado/NotificadoresDePago/NotificadorEmail').NotificadorEmail;
+let NotificadorFacebook = require('../../Empleado/NotificadoresDePago/NotificadorFacebook').NotificadorFacebook;
+let NotificadorWhatsapp = require('../../Empleado/NotificadoresDePago/NotificadorWhatsapp').NotificadorWhatsapp;
 
 class FabricaDeNotificadores {
     constructor() {
