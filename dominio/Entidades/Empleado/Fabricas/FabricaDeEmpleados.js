@@ -6,12 +6,15 @@ let Empleado = require('../Empleado').Empleado;
 
 
 class FabricaDeEmpleados {
-    constructor(fechaActual) {
+    constructor(listaDeEmpleados, listaDeAsistencias, listaDeVentas, fechaActual) {
+        this.listaDeEmpleados = listaDeEmpleados;
+        this.listaDeAsistencias = listaDeAsistencias;
+        this.listaDeVentas = listaDeVentas;
         this.fechaActual = fechaActual;
     }
 
     crearEmpleado(datosEmpleado) {
-        let fabricaDeCalculadoras = new FabricaDeCalculadoras(this.fechaActual);
+        let fabricaDeCalculadoras = new FabricaDeCalculadoras(this.listaDeAsistencias, this.listaDeVentas, this.fechaActual);
         let fabricaDeVerificadoresFechaDePago = new FabricaDeVerificadoresFechaDePago();
         let fabricaDeMetodosDePago = new FabricaMetodosDePago();
         let fabricaDeNotificadores = new FabricaNotificadores();
@@ -19,6 +22,14 @@ class FabricaDeEmpleados {
             fabricaDeCalculadoras.crearCalculadora(datosEmpleado), fabricaDeVerificadoresFechaDePago.crearVerificadorFechaDePago(datosEmpleado),
             fabricaDeNotificadores.crearNotificadores(datosEmpleado), fabricaDeMetodosDePago.crearMetodoDePago(datosEmpleado));
         return empleado;
+    }
+
+    crearVariosEmpleados() {
+        let empleados = [];
+        this.listaDeEmpleados.forEach(datosEmpleado => {
+            empleados.push(this.crearEmpleado(datosEmpleado));
+        });
+        return empleados;
     }
 }
 

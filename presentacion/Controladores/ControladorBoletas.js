@@ -2,13 +2,15 @@ var express = require('express');
 var router = express.Router();
 var RepositorioEmpleadosMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioEmpleadosMongoDB').RepositorioEmpleadosMongoDB;
 var RepositorioBoletasMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioBoletasMongoDB').RepositorioBoletasMongoDB;
+var RepositorioAsistenciasMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
+var RepositorioVentasMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
 var InteractorGenerarBoletas = require('../../dominio/Interactores/InteractorGenerarBoletas').InteractorGenerarBoletas;
 var GenerarBoletasPeticion = require('../../dominio/DTO/GenerarBoletasPeticion').GenerarBoletasPeticion;
 var GenerarBoletasRespuesta = require('../../dominio/DTO/GenerarBoletasRespuesta').GenerarBoletasRespuesta;
 
 router.get('/', function (peticion, respuesta) {
     let generarBoletasPeticion = new GenerarBoletasPeticion(peticion);
-    let interactorGenerarBoletas = new InteractorGenerarBoletas(new RepositorioEmpleadosMongoDB(), new RepositorioBoletasMongoDB());
+    let interactorGenerarBoletas = new InteractorGenerarBoletas(new RepositorioEmpleadosMongoDB(), new RepositorioBoletasMongoDB(), new RepositorioAsistenciasMongoDB(), new RepositorioVentasMongoDB);
     interactorGenerarBoletas.generarBoletas(new Date(generarBoletasPeticion.darFormato()))
         .then(resp => {
             let generarBoletasRespuesta = new GenerarBoletasRespuesta(resp);

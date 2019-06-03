@@ -5,7 +5,9 @@ let FabricaTarjetaDeAsistencias = require('./FabricaTarjetaDeAsistencias').Fabri
 let FabricaTarjetaDeVentas = require('./FabricaTarjetaDeVentas').FabricaTarjetaDeVentas;
 
 class FabricaDeCalculadoras {
-    constructor(fechaActual) {
+    constructor(listaDeAsistencias, listaDeVentas, fechaActual) {
+        this.listaDeAsistencias = listaDeAsistencias;
+        this.listaDeVentas = listaDeVentas;
         this.fechaActual = fechaActual;
     }
 
@@ -15,10 +17,10 @@ class FabricaDeCalculadoras {
                 return new CalculadoraSalarioEmpleadoFijo(empleado.Salario, new Date(empleado.FechaInicio), new Date(this.fechaActual));
             case "Parcial":
                 let fabricaTarjetaDeAsistencias = new FabricaTarjetaDeAsistencias(empleado);
-                return new CalculadoraSalarioEmpleadoParcial(empleado.SalarioPorHora, fabricaTarjetaDeAsistencias.construirTarjetaDeAsistencias(this.fechaActual));
+                return new CalculadoraSalarioEmpleadoParcial(empleado.SalarioPorHora, fabricaTarjetaDeAsistencias.construirTarjetaDeAsistenciasDelEmpleado(this.listaDeAsistencias, this.fechaActual));
             case "PorComision":
                 let fabricaTarjetaDeVentas = new FabricaTarjetaDeVentas(empleado);
-                return new CalculadoraSalarioEmpleadoPorComision(empleado.SalarioBase, fabricaTarjetaDeVentas.construirTarjetaDeVentas(this.fechaActual));
+                return new CalculadoraSalarioEmpleadoPorComision(empleado.SalarioBase, fabricaTarjetaDeVentas.construirTarjetaDeVentasDelEmpleado(this.listaDeVentas, this.fechaActual));
         }
     }
 }

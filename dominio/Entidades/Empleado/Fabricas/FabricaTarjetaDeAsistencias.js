@@ -1,16 +1,19 @@
 let AsistenciaDiaria = require('../CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria').AsistenciaDiaria;
 let TarjetaDeAsistencias = require('../CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias').TarjetaDeAsistencias;
-let RepositorioAsistenciasMongoDB = require('../../../PuertoDeEntidades/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
 
 class FabricaTarjetaDeAsistencias{
     constructor(empleado){
         this.empleado = empleado;
     }
 
-    async recuperarAsistenciasDelEmpleado(){
-        let repositorioAsistenciasMongoDB = new RepositorioAsistenciasMongoDB();
-        let asistencias = await repositorioAsistenciasMongoDB.recuperarAsistenciasDeEmpleado(this.empleado.Codigo);
-        return asistencias;
+    seleccionarAsistenciasDelEmpleado(listaDeAsistencias){
+        let asistenciasEmpleado = [];
+        listaDeAsistencias.forEach(asistencia => {
+            if(asistencia.CodigoEmpleado === this.empleado.Codigo){
+                asistenciasEmpleado.push(asistencia);
+            }
+        });
+        return asistenciasEmpleado;
     }
 
     seleccionarUltimasAsistencias(asistencias, fechaActual){
@@ -23,8 +26,8 @@ class FabricaTarjetaDeAsistencias{
         return ultimasAsistencias;
     }
 
-    construirTarjetaDeAsistencias(fechaActual){
-        let asistencias = this.recuperarAsistenciasDelEmpleado();
+    construirTarjetaDeAsistenciasDelEmpleado(listaDeAsistencias, fechaActual){
+        let asistencias = this.seleccionarAsistenciasDelEmpleado(listaDeAsistencias);
         let ultimasAsistencias = this.seleccionarUltimasAsistencias(asistencias, new Date(fechaActual));
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         ultimasAsistencias.forEach(asistencia => {

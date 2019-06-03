@@ -2,9 +2,11 @@ var FabricaDeEmpleados = require('../Entidades/Empleado/Fabricas/FabricaDeEmplea
 var GeneradorDeBoletas = require('../Entidades/Boleta/GeneradoresDeBoletas/GeneradorDeBoletas').GeneradorDeBoletas;
 
 class InteractorGenerarBoletas {
-    constructor(repositorioEmpleados, repositorioBoletas) {
+    constructor(repositorioEmpleados, repositorioBoletas, repositorioAsistencias, repositorioVentas) {
         this.repositorioEmpleados = repositorioEmpleados;
         this.repositorioBoletas = repositorioBoletas;
+        this.repositorioAsistencias = repositorioAsistencias;
+        this.repositorioVentas = repositorioVentas;
     }
 
     recuperarEmpleados() {
@@ -19,16 +21,33 @@ class InteractorGenerarBoletas {
         })
     }
 
-    crearEmpleados(listaDeEmpleados, fechaActual) {
-        let creadorDeEmpleados = new FabricaDeEmpleados(fechaActual);
-        let empleados = [];
-        let empleado;
-        listaDeEmpleados.forEach(datosEmpleado => {
-            console.log(datosEmpleado);
-            empleado = creadorDeEmpleados.crearEmpleado(datosEmpleado, fechaActual);
-            empleados.push(empleado);
-        });
-        return empleados;
+    recuperarListaDeAsistencias() {
+        let self = this;
+        return new Promise(function (resolve, reject) {
+            self.repositorioAsistencias.recuperarListaDeAsistencias()
+                .then(respuesta => {
+                    resolve(respuesta);
+                }).catch(err => {
+                    console.log(err)
+                });
+        })
+    }
+
+    recuperarListaDeVentas() {
+        let self = this;
+        return new Promise(function (resolve, reject) {
+            self.repositorioVentas.recuperarListaDeVentas()
+                .then(respuesta => {
+                    resolve(respuesta);
+                }).catch(err => {
+                    console.log(err)
+                });
+        })
+    }
+
+    crearEmpleados(listaDeEmpleados, listaDeAsistencias, listaDeVentas, fechaActual) {
+        let fabricaDeEmpleados = new FabricaDeEmpleados(listaDeEmpleados, listaDeAsistencias, listaDeVentas, fechaActual);
+        return fabricaDeEmpleados.crearVariosEmpleados();
     }
 
     guardarBoletas(boletas) {
@@ -45,9 +64,11 @@ class InteractorGenerarBoletas {
 
     async generarBoletas(fechaActual) {
         let listaDeEmpleados = await this.recuperarEmpleados();
-        let empleados = this.crearEmpleados(listaDeEmpleados, fechaActual);
+        let listaDeAsistencias = await this.recuperarListaDeAsistencias();
+        let listaDeVentas = await this.recuperarListaDeVentas();
+        let empleados = this.crearEmpleados(listaDeEmpleados, listaDeAsistencias, listaDeVentas, fechaActual);
         let generadorDeBoletas = new GeneradorDeBoletas();
-        let boletas = generadorDeBoletas.generarVariasBoletas(empleados, new Date('5, 31, 2019'));
+        let boletas = generadorDeBoletas.generarVariasBoletas(empleados, new Date(fechaActual));
         return await this.guardarBoletas(boletas);
     }
 }

@@ -7,10 +7,14 @@ class FabricaTarjetaDeVentas{
         this.empleado = empleado;
     }
 
-    async recuperarVentasDelEmpleado(){
-        let repositorioVentasMongoDB = new RepositorioVentasMongoDB();
-        let ventas = await repositorioVentasMongoDB.recuperarVentasDeEmpleado(this.empleado.Codigo);
-        return ventas;
+    seleccionarVentasDeEmpleado(listaDeVentas){
+        let ventasEmpleado = [];
+        listaDeVentas.forEach(venta => {
+            if(venta.CodigoEmpleado === this.empleado.Codigo){
+                ventasEmpleado.push(venta);
+            }
+        });
+        return ventasEmpleado;
     }
 
     seleccionarUltimasVentas(ventas, fechaActual){
@@ -23,8 +27,8 @@ class FabricaTarjetaDeVentas{
         return ultimasVentas;
     }
 
-    construirTarjetaDeVentas(fechaActual){
-        let ventas = this.recuperarVentasDeEmpleado();
+    construirTarjetaDeVentasDelEmpleado(listaDeVentas, fechaActual){
+        let ventas = this.seleccionarVentasDeEmpleado(listaDeVentas);
         let ultimasVentas = this.seleccionarUltimasVentas(ventas, new Date(fechaActual));
         let tarjetaVentas = new TarjetaVentas();
         ultimasVentas.forEach(venta => {
