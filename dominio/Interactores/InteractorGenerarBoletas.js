@@ -68,7 +68,7 @@ class InteractorGenerarBoletas {
         let listaDeVentas = await this.recuperarListaDeVentas();
         let empleados = this.crearEmpleados(listaDeEmpleados, listaDeAsistencias, listaDeVentas, fechaActual);
         let generadorDeBoletas = new GeneradorDeBoletas();
-        let boletas = generadorDeBoletas.generarVariasBoletas(empleados, new Date(fechaActual));
+        let boletas = generadorDeBoletas.generarVariasBoletas(empleados, fechaActual);
         return await this.guardarBoletas(boletas);
     }
 }

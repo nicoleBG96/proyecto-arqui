@@ -29,7 +29,7 @@ class FabricaTarjetaDeVentas{
 
     construirTarjetaDeVentasDelEmpleado(listaDeVentas, fechaActual){
         let ventas = this.seleccionarVentasDeEmpleado(listaDeVentas);
-        let ultimasVentas = this.seleccionarUltimasVentas(ventas, new Date(fechaActual));
+        let ultimasVentas = this.seleccionarUltimasVentas(ventas, fechaActual);
         let tarjetaVentas = new TarjetaVentas();
         ultimasVentas.forEach(venta => {
             let venta = new Venta(new Date(venta.Fecha), venta.MontoVendido, venta.PorcentajeDeComision);

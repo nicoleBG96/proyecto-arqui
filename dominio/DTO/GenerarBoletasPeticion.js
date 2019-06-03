@@ -4,7 +4,7 @@ class GenerarBoletasPeticion {
     }
 
     darFormato(){
-        return this.peticion.body;
+        return this.peticion.body.FechaActual;
     }
 }
 

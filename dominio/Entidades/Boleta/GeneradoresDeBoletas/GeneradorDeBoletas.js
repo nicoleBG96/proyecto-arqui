@@ -8,12 +8,16 @@ class GeneradorDeBoletas {
         return empleado.esSuDiaDePaga(fecha);
     }
 
+    generarError(){
+        return { "Error" :  "No se puede generar la boleta"};
+    }
+
     generarUnaBoleta(empleado, fecha) {
         if(this.sePuedeGenerarLaBoletaDelEmpleado(empleado, fecha)){
             let boleta = new Boleta(empleado, fecha);
             return boleta.generarBoletaDelEmpleado();
         }else{
-            return "No se puede generar la boleta";
+            return this.generarError();
         }
     }
 
