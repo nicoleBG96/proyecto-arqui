@@ -1,0 +1,10 @@
+.jumbotron{
+    background-image: url("./assets/design2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.col-sm-4:hover{
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ const http = require('http');
 const routes = require('./presentacion/Controladores/Rutas');
 const cors = require('cors')
 const app = express();
+const path = require('path');
 
 app.use(bodyParser.json({limit: '50mb'}));
 
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use('/', routes);
+
 
 var port = process.env.PORT || '3000';
 app.set('port', port);
