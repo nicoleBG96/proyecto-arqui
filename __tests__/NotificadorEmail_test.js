@@ -9,9 +9,9 @@ describe("Notificador", function () {
         notificador = new NotificadorWhatsapp(notificador);
         notificador = new NotificadorFacebook(notificador);
         notificador = new NotificadorEmail(notificador);
-        let mensaje = 'Su boleta fue generada correctamente'
-        let destinatario = 'tefi1508@gmail.com'
-        notificador.enviarNotificacion(destinatario, mensaje);
+        let destinatario = 'tefi1508@gmail.com';
+        notificador.asignarDestinatario(destinatario);
+        notificador.enviarNotificacion();
         expect(true).toBe(true);
     });
 });

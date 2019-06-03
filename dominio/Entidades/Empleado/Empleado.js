@@ -34,6 +34,10 @@ class Empleado {
     calcularSalarioAPagar() {
         return this.calculadoraDeMontos.calcularSalarioAPagar();
     }
+
+    enviarNotificacion(){
+        this.notificadorDePago.enviarNotificacion();
+    }
 }
 
 module.exports = { Empleado };

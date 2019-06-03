@@ -1,9 +1,14 @@
 class Notificador{
     constructor(){
-
+        this.destinatario = null;
+        this.mensaje = ""
     }
 
-    enviarNotificacion(destinatario, mensaje){
+    asignarDestinatario(destinatario){
+        
+    }
+
+    enviarNotificacion(){
         
     }
 }

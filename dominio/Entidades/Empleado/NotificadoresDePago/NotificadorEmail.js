@@ -4,10 +4,16 @@ const nodemailer = require('nodemailer');
 class NotificadorEmail {
     constructor(notificador) {
         this.notificador = notificador;
+        this.mensaje = "Su boleta de pago ha sido generada exitosamente";
+        this.destinatario = null;
     }
 
-    enviarNotificacion(destinatario, mensaje) {
-        this.notificador.enviarNotificacion(destinatario, mensaje);
+    asignarDestinatario(destinatario){
+        this.destinatario = destinatario;
+    }
+
+    enviarNotificacion() {
+        this.notificador.enviarNotificacion();
         nodemailer.createTestAccount((err, account) => {
             let transporter = nodemailer.createTransport({
                 host: 'smtp.googlemail.com', // Gmail Host
@@ -26,8 +32,8 @@ class NotificadorEmail {
                 text: ''
             };
 
-            mailOptions.text = mensaje;
-            mailOptions.to = destinatario;
+            mailOptions.text = this.mensaje;
+            mailOptions.to = this.destinatario;
 
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {

@@ -8,8 +8,8 @@ class FabricaNotificadores {
 
     }
 
-    crearNotificador(tipoNotificador, notificador) {
-        switch (tipoNotificador) {
+    crearNotificador(nombreNotificador, notificador) {
+        switch (nombreNotificador) {
             case "Notificador":
                 return new Notificador();
             case "NotificadorEmail":
@@ -23,8 +23,10 @@ class FabricaNotificadores {
 
     crearNotificadores(empleado) {
         let notificador = this.crearNotificador("Notificador");
-        empleado.Notificadores.forEach(tipoNotificador => {
-            notificador = this.crearNotificador(tipoNotificador, notificador);
+        let nombreNotificadores = Object.keys(empleado.Notificadores);
+        nombreNotificadores.forEach(nombreNotificador => {
+            notificador = this.crearNotificador(nombreNotificador, notificador);
+            notificador.asignarDestinatario(empleado.Notificadores[nombreNotificador]);
         });
         return notificador;
     }

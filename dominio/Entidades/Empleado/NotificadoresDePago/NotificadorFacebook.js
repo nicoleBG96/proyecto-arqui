@@ -1,11 +1,17 @@
 class NotificadorFacebook {
     constructor(notificador){
         this.notificador = notificador;
+        this.mensaje = "Notificacion enviada por Facebook";
+        this.destinatario = null;
     }
 
-    enviarNotificacion(destinatario, mensaje){
-        this.notificador.enviarNotificacion(destinatario, mensaje);
-        console.log("Notificacion enviada por Facebook");
+    asignarDestinatario(destinatario){
+        this.destinatario = destinatario;
+    }
+
+    enviarNotificacion(){
+        this.notificador.enviarNotificacion();
+        console.log(this.mensaje);
     }
 }
 

@@ -3,14 +3,14 @@ function obtenerEmpleados() {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var jsonObj = JSON.parse(this.responseText);
-            populateTable(jsonObj.objects);
+            construirTabla(jsonObj.Respuesta);
         }
     };
     xmlhttp.open("GET", "http://127.0.0.1:3000/empleado/", true);
     xmlhttp.send();
 }
 
-function llenarTabla(jsonObj) {
+function construirTabla(jsonObj) {
     var col = [];
     for (let index = 0; index < jsonObj.length - 1; index++) {
         for (var key in jsonObj[index]) {
