@@ -1,4 +1,4 @@
-export class Empleado {
+class Empleado {
     constructor(nombre, codigo, ci, cargo, calculadoraDeMontos, verificadorFechaDePago, notificadorDePago, metodoDePago) {
         this.nombre = nombre;
         this.codigo = codigo;
@@ -36,3 +36,4 @@ export class Empleado {
     }
 }
 
+module.exports = { Empleado };

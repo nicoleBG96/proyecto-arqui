@@ -1,4 +1,4 @@
-export class Notificador{
+class Notificador{
     constructor(){
 
     }
@@ -7,3 +7,5 @@ export class Notificador{
         
     }
 }
+
+module.exports = { Notificador };

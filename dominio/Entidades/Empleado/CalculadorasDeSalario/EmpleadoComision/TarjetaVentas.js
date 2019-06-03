@@ -1,4 +1,4 @@
-export class TarjetaVentas {
+class TarjetaVentas {
     constructor() {
         this.ventas = [];
     }
@@ -7,6 +7,10 @@ export class TarjetaVentas {
         this.ventas.push(venta);
     }
 
+    registrarVentas(ventas){
+        this.ventas = ventas;
+    }
+    
     calcularTotalDeComisiones() {
         let comisionTotal = 0;
         this.ventas.forEach(venta => {
@@ -15,3 +19,5 @@ export class TarjetaVentas {
         return comisionTotal;
     }
 }
+
+module.exports = { TarjetaVentas };

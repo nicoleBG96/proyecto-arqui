@@ -1,4 +1,4 @@
-export class CalculadoraSalarioEmpleadoPorComision {
+class CalculadoraSalarioEmpleadoPorComision {
     constructor(salarioBase, tarjetaDeVentas) {
         this.salarioBase = salarioBase;
         this.tarjetaDeVentas = tarjetaDeVentas;
@@ -13,3 +13,5 @@ export class CalculadoraSalarioEmpleadoPorComision {
     }
 
 }
+
+module.exports = { CalculadoraSalarioEmpleadoPorComision };

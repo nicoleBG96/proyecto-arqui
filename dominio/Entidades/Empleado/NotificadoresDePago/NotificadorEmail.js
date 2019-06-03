@@ -1,7 +1,7 @@
 'use strict';
 const nodemailer = require('nodemailer');
 
-export class NotificadorEmail {
+class NotificadorEmail {
     constructor(notificador) {
         this.notificador = notificador;
     }
@@ -38,3 +38,5 @@ export class NotificadorEmail {
         });
     }
 }
+
+module.exports = { NotificadorEmail };

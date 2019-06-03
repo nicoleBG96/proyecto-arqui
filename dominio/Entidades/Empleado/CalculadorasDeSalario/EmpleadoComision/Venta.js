@@ -1,4 +1,4 @@
-export class Venta {
+class Venta {
     constructor(fecha, montoVendido, porcentajeDeComision){
         this.fecha = fecha;
         this.montoVendido = montoVendido;
@@ -9,3 +9,5 @@ export class Venta {
         return this.montoVendido * this.porcentajeDeComision / 100;
     }
 }
+
+module.exports = { Venta };

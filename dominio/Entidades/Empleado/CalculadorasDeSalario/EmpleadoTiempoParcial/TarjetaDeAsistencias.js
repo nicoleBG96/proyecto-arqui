@@ -1,10 +1,14 @@
-export class TarjetaDeAsistencias{
+class TarjetaDeAsistencias{
     constructor(){
         this.asistencias = [];
     }
 
     registrarAsistencia(asistenciaDiaria){
         this.asistencias.push(asistenciaDiaria);
+    }
+
+    registrarAsistencias(asistencias){
+        this.asistencias = asistencias;
     }
 
     calcularHorasTrabajadas(){
@@ -15,3 +19,5 @@ export class TarjetaDeAsistencias{
         return horasTrabajadas;
     }
 }
+
+module.exports = { TarjetaDeAsistencias };

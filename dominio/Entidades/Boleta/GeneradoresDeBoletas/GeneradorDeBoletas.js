@@ -1,6 +1,6 @@
-import { Boleta } from '../Boleta';
+let Boleta = require('../Boleta').Boleta;
 
-export class GeneradorDeBoletas {
+class GeneradorDeBoletas {
     constructor() {
     }
 
@@ -8,12 +8,16 @@ export class GeneradorDeBoletas {
         return empleado.esSuDiaDePaga(fecha);
     }
 
+    generarError(){
+        return { "Error" :  "No se puede generar la boleta"};
+    }
+
     generarUnaBoleta(empleado, fecha) {
         if(this.sePuedeGenerarLaBoletaDelEmpleado(empleado, fecha)){
             let boleta = new Boleta(empleado, fecha);
             return boleta.generarBoletaDelEmpleado();
         }else{
-            return "No se puede generar la boleta";
+            return this.generarError();
         }
     }
 
@@ -25,3 +29,5 @@ export class GeneradorDeBoletas {
         return boletas;
     }
 }
+
+module.exports = { GeneradorDeBoletas };
