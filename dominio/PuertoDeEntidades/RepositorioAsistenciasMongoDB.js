@@ -25,7 +25,7 @@ class RepositorioAsistenciasMongoDB {
         return new Promise(function (resolve, reject) {
             MongoClient.connect(self.url, { useNewUrlParser: true }, function (err, daseDeDatos) {
                 let daseDeDatosAbierta = daseDeDatos.db(self.nombre);
-                daseDeDatosAbierta.collection("asistencias").find({codigoEmpleado : codigoEmpleado}).toArray(function (err, resultado) {
+                daseDeDatosAbierta.collection("asistencias").find({CodigoEmpleado : codigoEmpleado}).toArray(function (err, resultado) {
                     if (err) throw err;
                     resolve(resultado);
                     daseDeDatos.close();

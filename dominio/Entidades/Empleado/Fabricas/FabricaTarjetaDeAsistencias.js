@@ -28,7 +28,7 @@ class FabricaTarjetaDeAsistencias{
         let ultimasAsistencias = this.seleccionarUltimasAsistencias(asistencias, new Date(fechaActual));
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         ultimasAsistencias.forEach(asistencia => {
-            let asistenciaDiaria = new AsistenciaDiaria(new Date(), asistencia.HoraIngreso, asistencia.HoraSalida);
+            let asistenciaDiaria = new AsistenciaDiaria(new Date(asistencia.Fecha), asistencia.HoraIngreso, asistencia.HoraSalida);
             tarjetaDeAsistencias.registrarAsistencia(asistenciaDiaria);
         });
         return tarjetaDeAsistencias;

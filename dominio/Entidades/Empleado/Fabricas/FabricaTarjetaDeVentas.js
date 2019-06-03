@@ -28,7 +28,7 @@ class FabricaTarjetaDeVentas{
         let ultimasVentas = this.seleccionarUltimasVentas(ventas, new Date(fechaActual));
         let tarjetaVentas = new TarjetaVentas();
         ultimasVentas.forEach(venta => {
-            let venta = new Venta(new Date(), venta.MontoVendido, venta.PorcentajeDeComision);
+            let venta = new Venta(new Date(venta.Fecha), venta.MontoVendido, venta.PorcentajeDeComision);
             tarjetaVentas.registrarVenta(venta);
         });
         return tarjetaVentas;
