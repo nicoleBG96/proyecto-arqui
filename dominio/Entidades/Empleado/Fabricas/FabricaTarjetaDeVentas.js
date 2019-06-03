@@ -1,6 +1,5 @@
 let Venta = require('../CalculadorasDeSalario/EmpleadoComision/Venta').Venta;
-let TarjetaVentas = require('../CalculadorasDeSalario/EmpleadoComision/TarjetaVentas').TarjetaDeAsistencias;
-let RepositorioVentasMongoDB = require('../../../PuertoDeEntidades/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
+let TarjetaVentas = require('../CalculadorasDeSalario/EmpleadoComision/TarjetaVentas').TarjetaVentas;
 
 class FabricaTarjetaDeVentas{
     constructor(empleado){
@@ -19,9 +18,12 @@ class FabricaTarjetaDeVentas{
 
     seleccionarUltimasVentas(ventas, fechaActual){
         let ultimasVentas = [];
-        ventas.forEach(venta => {
-            if(venta.Dia > fechaActual.getDate() - 14){
-                ultimasVentas.push(asistencia);
+        ventas.forEach(vent => {
+            let fechaVenta = new Date(vent.Fecha);
+            let fechaMinima = new Date(fechaActual);
+            fechaMinima.setDate(fechaActual.getDate() - 14);
+            if(fechaVenta.getTime() >= fechaMinima.getTime()){
+                ultimasVentas.push(vent);
             }
         });
         return ultimasVentas;
@@ -31,8 +33,8 @@ class FabricaTarjetaDeVentas{
         let ventas = this.seleccionarVentasDeEmpleado(listaDeVentas);
         let ultimasVentas = this.seleccionarUltimasVentas(ventas, fechaActual);
         let tarjetaVentas = new TarjetaVentas();
-        ultimasVentas.forEach(venta => {
-            let venta = new Venta(new Date(venta.Fecha), venta.MontoVendido, venta.PorcentajeDeComision);
+        ultimasVentas.forEach(datosVenta => {
+            let venta = new Venta(new Date(datosVenta.Fecha), datosVenta.MontoVendido, datosVenta.PorcentajeDeComision);
             tarjetaVentas.registrarVenta(venta);
         });
         return tarjetaVentas;

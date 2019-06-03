@@ -16,10 +16,17 @@ class FabricaTarjetaDeAsistencias{
         return asistenciasEmpleado;
     }
 
+    obtenerFechaMinima(){
+
+    }
+
     seleccionarUltimasAsistencias(asistencias, fechaActual){
         let ultimasAsistencias = [];
         asistencias.forEach(asistencia => {
-            if(asistencia.Dia > fechaActual.getDate() - 7){
+            let fechaAsistencia = new Date(asistencia.Fecha);
+            let fechaMinima = new Date(fechaActual);
+            fechaMinima.setDate(fechaActual.getDate() - 7);
+            if(fechaAsistencia.getTime() >= fechaMinima.getTime()){
                 ultimasAsistencias.push(asistencia);
             }
         });

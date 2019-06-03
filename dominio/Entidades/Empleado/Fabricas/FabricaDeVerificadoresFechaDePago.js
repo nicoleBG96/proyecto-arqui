@@ -14,7 +14,7 @@ class FabricaDeVerificadoresFechaDePago{
             case "Parcial":
                 return new VerificadorFechaDePagoEmpleadoParcial();
             case "PorComision":
-                return new VerificadorFechaDePagoEmpleadoPorComision(empleado.FechaInicio);
+                return new VerificadorFechaDePagoEmpleadoPorComision(new Date(empleado.FechaInicio));
         }
     }
 }
