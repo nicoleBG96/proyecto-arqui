@@ -21,14 +21,19 @@ class Boleta{
         return datosEmpleado;
     }
 
+    renderizarFechaEmision(){
+        return (this.fechaDeEmision.getMonth() + 1) + ", " + this.fechaDeEmision.getDate() + ", " + this.fechaDeEmision.getFullYear();
+    }
+
     renderizarBoleta(datosBoleta, datosEmpleado){
-        return `Boleta de Pago\n
-        Fecha: ${this.fechaDeEmision}\n
-        Empleado: ${datosEmpleado.nombreEmpleado}\n
-        Codigo: ${datosEmpleado.codigoEmpleado}\n
-        Ci: ${datosEmpleado.ciEmpleado}\n
-        Cargo: ${datosEmpleado.cargoEmpleado}\n
-        Salario Total: ${datosBoleta.salarioAPagar}\n`;
+        return {
+            "FechaEmision" : this.renderizarFechaEmision(),
+            "NombreEmpleado" : datosEmpleado.nombreEmpleado,
+            "CodigoEmpleado" : datosEmpleado.codigoEmpleado,
+            "CiEmpleado" : datosEmpleado.ciEmpleado,
+            "CargoEmpleado" : datosEmpleado.cargoEmpleado,
+            "SalarioPagado" : datosBoleta.salarioAPagar
+        }
     }
 
     generarBoletaDelEmpleado(){

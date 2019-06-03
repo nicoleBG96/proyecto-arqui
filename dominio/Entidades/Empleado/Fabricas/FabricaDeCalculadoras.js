@@ -12,7 +12,7 @@ class FabricaDeCalculadoras {
     crearCalculadora(empleado) {
         switch (empleado.Tipo) {
             case "Fijo":
-                return new CalculadoraSalarioEmpleadoFijo(empleado.Salario, empleado.FechaInicio);
+                return new CalculadoraSalarioEmpleadoFijo(empleado.Salario, new Date(empleado.FechaInicio));
             case "Parcial":
                 let constructorTarjetaDeAsistencias = new ConstructorTarjetaDeAsistencias(empleado);
                 return new CalculadoraSalarioEmpleadoParcial(empleado.SalarioPorHora, constructorTarjetaDeAsistencias.construirTarjetaDeAsistencias());

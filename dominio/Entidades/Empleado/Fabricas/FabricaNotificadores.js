@@ -3,7 +3,7 @@ let NotificadorEmail = require('../../Empleado/NotificadoresDePago/NotificadorEm
 let NotificadorFacebook = require('../../Empleado/NotificadoresDePago/NotificadorFacebook').NotificadorFacebook;
 let NotificadorWhatsapp = require('../../Empleado/NotificadoresDePago/NotificadorWhatsapp').NotificadorWhatsapp;
 
-class FabricaDeNotificadores {
+class FabricaNotificadores {
     constructor() {
 
     }
@@ -30,4 +30,4 @@ class FabricaDeNotificadores {
     }
 }
 
-module.exports = { FabricaDeNotificadores };
+module.exports = { FabricaNotificadores };

@@ -16,8 +16,8 @@ class FabricaDeEmpleados {
         let fabricaDeMetodosDePago = new FabricaMetodosDePago();
         let fabricaDeNotificadores = new FabricaNotificadores();
         let empleado = new Empleado(datosEmpleado.Nombre, datosEmpleado.Codigo, datosEmpleado.Ci, datosEmpleado.Cargo,
-            fabricaDeCalculadoras.crearCalculadora(empleado), fabricaDeVerificadoresFechaDePago.crearVerificadorFechaDePago(empleado),
-            fabricaDeNotificadores.crearNotificadores(empleado), fabricaDeMetodosDePago.crearMetodoDePago(empleado));
+            fabricaDeCalculadoras.crearCalculadora(datosEmpleado), fabricaDeVerificadoresFechaDePago.crearVerificadorFechaDePago(datosEmpleado),
+            fabricaDeNotificadores.crearNotificadores(datosEmpleado), fabricaDeMetodosDePago.crearMetodoDePago(datosEmpleado));
         return empleado;
     }
 }
