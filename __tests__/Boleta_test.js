@@ -15,7 +15,7 @@ import { PagoPorDeposito } from '../dominio/Entidades/Empleado/MetodoDePago/Pago
 
 describe("Boleta", function () {
     test("dada la boleta de pago de un empleado fijo deberia devolver los datos de la boleta respectivos", function () {
-        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date('5, 1, 2019'), new Date('5, 31, 2019'));
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();

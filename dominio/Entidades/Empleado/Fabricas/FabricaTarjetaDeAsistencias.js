@@ -1,8 +1,8 @@
-let AsistenciaDiaria = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria').AsistenciaDiaria;
-let TarjetaDeAsistencias = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias').TarjetaDeAsistencias;
-let RepositorioAsistenciasMongoDB = require('../../PuertoDeEntidades/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
+let AsistenciaDiaria = require('../CalculadorasDeSalario/EmpleadoTiempoParcial/AsistenciaDiaria').AsistenciaDiaria;
+let TarjetaDeAsistencias = require('../CalculadorasDeSalario/EmpleadoTiempoParcial/TarjetaDeAsistencias').TarjetaDeAsistencias;
+let RepositorioAsistenciasMongoDB = require('../../../PuertoDeEntidades/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
 
-class ConstructorTarjetaDeAsistencias{
+class FabricaTarjetaDeAsistencias{
     constructor(empleado){
         this.empleado = empleado;
     }
@@ -13,9 +13,8 @@ class ConstructorTarjetaDeAsistencias{
         return asistencias;
     }
 
-    seleccionarUltimasAsistencias(asistencias){
+    seleccionarUltimasAsistencias(asistencias, fechaActual){
         let ultimasAsistencias = [];
-        let fechaActual = new Date();
         asistencias.forEach(asistencia => {
             if(asistencia.Dia > fechaActual.getDate() - 7){
                 ultimasAsistencias.push(asistencia);
@@ -24,9 +23,9 @@ class ConstructorTarjetaDeAsistencias{
         return ultimasAsistencias;
     }
 
-    construirTarjetaDeAsistencias(){
+    construirTarjetaDeAsistencias(fechaActual){
         let asistencias = this.recuperarAsistenciasDelEmpleado();
-        let ultimasAsistencias = this.seleccionarUltimasAsistencias(asistencias);
+        let ultimasAsistencias = this.seleccionarUltimasAsistencias(asistencias, new Date(fechaActual));
         let tarjetaDeAsistencias = new TarjetaDeAsistencias();
         ultimasAsistencias.forEach(asistencia => {
             let asistenciaDiaria = new AsistenciaDiaria(new Date(), asistencia.HoraIngreso, asistencia.HoraSalida);
@@ -36,4 +35,4 @@ class ConstructorTarjetaDeAsistencias{
     }
 }
 
-module.exports = { ConstructorTarjetaDeAsistencias };
+module.exports = { FabricaTarjetaDeAsistencias };

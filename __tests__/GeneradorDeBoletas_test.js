@@ -1,5 +1,4 @@
 import { GeneradorDeBoletas } from '../dominio/Entidades/Boleta/GeneradoresDeBoletas/GeneradorDeBoletas'
-import { Boleta } from '../dominio/Entidades/Boleta/Boleta';
 import { Empleado } from '../dominio/Entidades/Empleado/Empleado';
 import { CalculadoraSalarioEmpleadoFijo } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo';
 import { CalculadoraSalarioEmpleadoParcial } from '../dominio/Entidades/Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial';
@@ -16,7 +15,7 @@ import { PagoPorDeposito } from '../dominio/Entidades/Empleado/MetodoDePago/Pago
 
 describe("GeneradorDeBoletas", function () {
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia decir que si se puede generar su boleta", function () {
-        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date('5, 1, 2019'), new Date('5, 31, 2019'));
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -27,7 +26,7 @@ describe("GeneradorDeBoletas", function () {
     });
 
     test("dado el empleado Royer Torrico a la hora de generar su boleta el dia 5/31/2019 que le corresponde, deberia generar su boleta con todos los datos respectivos", function () {
-        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(5000, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(5000, new Date('5, 1, 2019'), new Date('5, 31, 2019'));
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
@@ -96,7 +95,7 @@ describe("GeneradorDeBoletas", function () {
     });
 
     test("dada una lista de 3 empleados a la hora de generar sus boleta el dia 5/31/2019 que les corresponde, deberia generar sus boletas con todos los datos respectivos", function () {
-        let calculadoraDeSalario1 = new CalculadoraSalarioEmpleadoFijo(5000, new Date());
+        let calculadoraDeSalario1 = new CalculadoraSalarioEmpleadoFijo(5000, new Date('5, 1, 2019'), new Date('5, 31, 2019'));
         let verificadorFechaDePagoEmpleadoFijo1 = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador1 = new NotificadorEmail();
         let metodoDePago1 = new PagoPorDeposito();

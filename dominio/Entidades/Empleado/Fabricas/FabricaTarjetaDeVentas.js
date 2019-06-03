@@ -1,8 +1,8 @@
-let Venta = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/Venta').Venta;
-let TarjetaVentas = require('../../Entidades/Empleado/CalculadorasDeSalario/EmpleadoComision/TarjetaVentas').TarjetaDeAsistencias;
-let RepositorioVentasMongoDB = require('../../PuertoDeEntidades/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
+let Venta = require('../CalculadorasDeSalario/EmpleadoComision/Venta').Venta;
+let TarjetaVentas = require('../CalculadorasDeSalario/EmpleadoComision/TarjetaVentas').TarjetaDeAsistencias;
+let RepositorioVentasMongoDB = require('../../../PuertoDeEntidades/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
 
-class ConstructorTarjetaDeVentas{
+class FabricaTarjetaDeVentas{
     constructor(empleado){
         this.empleado = empleado;
     }
@@ -13,9 +13,8 @@ class ConstructorTarjetaDeVentas{
         return ventas;
     }
 
-    seleccionarUltimasVentas(ventas){
+    seleccionarUltimasVentas(ventas, fechaActual){
         let ultimasVentas = [];
-        let fechaActual = new Date();
         ventas.forEach(venta => {
             if(venta.Dia > fechaActual.getDate() - 14){
                 ultimasVentas.push(asistencia);
@@ -24,9 +23,9 @@ class ConstructorTarjetaDeVentas{
         return ultimasVentas;
     }
 
-    construirTarjetaDeVentas(){
+    construirTarjetaDeVentas(fechaActual){
         let ventas = this.recuperarVentasDeEmpleado();
-        let ultimasVentas = this.seleccionarUltimasVentas(ventas);
+        let ultimasVentas = this.seleccionarUltimasVentas(ventas, new Date(fechaActual));
         let tarjetaVentas = new TarjetaVentas();
         ultimasVentas.forEach(venta => {
             let venta = new Venta(new Date(), venta.MontoVendido, venta.PorcentajeDeComision);
@@ -36,4 +35,4 @@ class ConstructorTarjetaDeVentas{
     }
 }
 
-module.exports = { ConstructorTarjetaDeVentas };
+module.exports = { FabricaTarjetaDeVentas };

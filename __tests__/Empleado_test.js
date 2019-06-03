@@ -14,7 +14,7 @@ import { PagoPorDeposito } from '../dominio/Entidades/Empleado/MetodoDePago/Pago
 
 describe("Empleado", function () {
     test("dado un empleado fijo que gana 1100 al calcular su salario deberia devolver 1100", function () {
-        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date());
+        let calculadoraDeSalario = new CalculadoraSalarioEmpleadoFijo(1100, new Date('5, 1, 2019'), new Date('5, 31, 2019'));
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();

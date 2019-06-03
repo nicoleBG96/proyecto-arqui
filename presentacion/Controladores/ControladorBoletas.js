@@ -9,7 +9,7 @@ var GenerarBoletasRespuesta = require('../../dominio/DTO/GenerarBoletasRespuesta
 router.get('/', function (peticion, respuesta) {
     let generarBoletasPeticion = new GenerarBoletasPeticion(peticion);
     let interactorGenerarBoletas = new InteractorGenerarBoletas(new RepositorioEmpleadosMongoDB(), new RepositorioBoletasMongoDB());
-    interactorGenerarBoletas.generarBoletas()
+    interactorGenerarBoletas.generarBoletas(new Date(generarBoletasPeticion.darFormato()))
         .then(resp => {
             let generarBoletasRespuesta = new GenerarBoletasRespuesta(resp);
             respuesta.send(generarBoletasRespuesta.darFormato());

@@ -6,12 +6,12 @@ let Empleado = require('../Empleado').Empleado;
 
 
 class FabricaDeEmpleados {
-    constructor() {
-
+    constructor(fechaActual) {
+        this.fechaActual = fechaActual;
     }
 
     crearEmpleado(datosEmpleado) {
-        let fabricaDeCalculadoras = new FabricaDeCalculadoras();
+        let fabricaDeCalculadoras = new FabricaDeCalculadoras(this.fechaActual);
         let fabricaDeVerificadoresFechaDePago = new FabricaDeVerificadoresFechaDePago();
         let fabricaDeMetodosDePago = new FabricaMetodosDePago();
         let fabricaDeNotificadores = new FabricaNotificadores();

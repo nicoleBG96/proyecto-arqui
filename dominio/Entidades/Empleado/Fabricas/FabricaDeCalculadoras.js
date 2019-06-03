@@ -1,24 +1,24 @@
 let CalculadoraSalarioEmpleadoFijo = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo').CalculadoraSalarioEmpleadoFijo;
 let CalculadoraSalarioEmpleadoParcial = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial').CalculadoraSalarioEmpleadoParcial;
 let CalculadoraSalarioEmpleadoPorComision = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision').CalculadoraSalarioEmpleadoPorComision;
-let ConstructorTarjetaDeAsistencias = require('../../../PuertoDeEntidades/Constructores/ConstructorTarjetaDeAsistencias').ConstructorTarjetaDeAsistencias;
-let ConstructorTarjetaDeVentas = require('../../../PuertoDeEntidades/Constructores/ConstructorTarjetaDeVentas').ConstructorTarjetaDeVentas;
+let FabricaTarjetaDeAsistencias = require('./FabricaTarjetaDeAsistencias').FabricaTarjetaDeAsistencias;
+let FabricaTarjetaDeVentas = require('./FabricaTarjetaDeVentas').FabricaTarjetaDeVentas;
 
 class FabricaDeCalculadoras {
-    constructor() {
-
+    constructor(fechaActual) {
+        this.fechaActual = fechaActual;
     }
 
     crearCalculadora(empleado) {
         switch (empleado.Tipo) {
             case "Fijo":
-                return new CalculadoraSalarioEmpleadoFijo(empleado.Salario, new Date(empleado.FechaInicio));
+                return new CalculadoraSalarioEmpleadoFijo(empleado.Salario, new Date(empleado.FechaInicio), new Date(this.fechaActual));
             case "Parcial":
-                let constructorTarjetaDeAsistencias = new ConstructorTarjetaDeAsistencias(empleado);
-                return new CalculadoraSalarioEmpleadoParcial(empleado.SalarioPorHora, constructorTarjetaDeAsistencias.construirTarjetaDeAsistencias());
+                let fabricaTarjetaDeAsistencias = new FabricaTarjetaDeAsistencias(empleado);
+                return new CalculadoraSalarioEmpleadoParcial(empleado.SalarioPorHora, fabricaTarjetaDeAsistencias.construirTarjetaDeAsistencias(this.fechaActual));
             case "PorComision":
-                let constructorTarjetaDeVentas = new ConstructorTarjetaDeVentas(empleado);
-                return new CalculadoraSalarioEmpleadoPorComision(empleado.SalarioBase, constructorTarjetaDeVentas.construirTarjetaDeVentas());
+                let fabricaTarjetaDeVentas = new FabricaTarjetaDeVentas(empleado);
+                return new CalculadoraSalarioEmpleadoPorComision(empleado.SalarioBase, fabricaTarjetaDeVentas.construirTarjetaDeVentas(this.fechaActual));
         }
     }
 }

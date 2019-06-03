@@ -1,17 +1,16 @@
 class CalculadoraSalarioEmpleadoFijo {
-    constructor(salario, fechaInicio) {
+    constructor(salario, fechaInicio, fechaActual) {
         this.salario = salario;
         this.fechaInicio = fechaInicio;
+        this.fechaActual = fechaActual;
     }
 
     comenzoATrabajarEsteMes(){
-        let fechaActual = new Date();
-        return this.fechaInicio.getMonth() === fechaActual.getMonth();
+        return this.fechaInicio.getMonth() === this.fechaActual.getMonth();
     }
 
     comenzoATrabajarEsteAnio(){
-        let fechaActual = new Date();
-        return this.fechaInicio.getFullYear() === fechaActual.getFullYear();
+        return this.fechaInicio.getFullYear() === this.fechaActual.getFullYear();
     }
 
     esElPrimerMesDelEmpleado(){
