@@ -4,7 +4,14 @@ class RegistrarVentaPeticion {
     }
 
     darFormato(){
-        return this.peticion.body;
+        let fecha = new Date(this.peticion.body.Fecha);
+        let asistencia = {
+            "Fecha" : (fecha.getMonth()+1) + ", " + fecha.getDate() + ", " + fecha.getFullYear(),
+            "MontoVendido" : parseInt(this.peticion.body.MontoVendido),
+            "PorcentajeDeComision" : parseInt(this.peticion.body.PorcentajeDeComision),
+            "CodigoEmpleado" : parseInt(this.peticion.body.CodigoEmpleado)
+        };
+        return asistencia;
     }
 }
 

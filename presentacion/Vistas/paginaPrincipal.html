@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="./Estilos/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        function verEmpleados() {
+            window.location.href = '/presentacion/Vistas/empleados.html';
+        }
+
+        function generarBoletas() {
+            window.location.href = '/presentacion/Vistas/boletas.html';
+        }
+    </script>
     <title>Empresa</title>
 </head>
 
@@ -25,7 +34,7 @@
         <br>
         <br>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4" onclick="verEmpleados()">
                 <span class="glyphicon glyphicon-user"></span>
                 <h4>EMPLEADOS</h4>
                 <p>Ver lista de empleados</p>
@@ -40,7 +49,7 @@
                 <h4>Boletas</h4>
                 <p>Ver lista de boletas de pago</p>
             </div>
-            
+
         </div>
     </div>
 </body>

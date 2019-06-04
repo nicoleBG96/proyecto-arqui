@@ -1,12 +1,12 @@
-function obtenerEmpleados() {
+function generarBoletas() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var jsonObj = JSON.parse(this.responseText);
-            construirTabla(jsonObj.Respuesta, "empleados");
+            construirTabla(jsonObj.Respuesta, "boletas");
         }
     };
-    xmlhttp.open("GET", "http://127.0.0.1:3000/empleado/", true);
+    xmlhttp.open("GET", "http://127.0.0.1:3000/boleta", true);
     xmlhttp.send();
 }
 
@@ -20,12 +20,12 @@ function agregarFila(thead, nombreFila) {
 
 function construirCabecera() {
     var thead = document.createElement("thead")
-    thead = agregarFila(thead, "Nombre");
-    thead = agregarFila(thead, "Codigo");
-    thead = agregarFila(thead, "Ci");
-    thead = agregarFila(thead, "Cargo");
-    thead = agregarFila(thead, "Tipo");
-    thead = agregarFila(thead, "Metodo de pago");
+    thead = agregarFila(thead, "Fecha Emision");
+    thead = agregarFila(thead, "Nombre Empleado");
+    thead = agregarFila(thead, "Codigo Empleado");
+    thead = agregarFila(thead, "Ci Empleado");
+    thead = agregarFila(thead, "Cargo Empleado");
+    thead = agregarFila(thead, "Salario Pagado");
     return thead;
 }
 
@@ -37,25 +37,17 @@ function construirTabla(empleados, nombreTabla) {
     for (var i = 0; i < empleados.length; i++) {
         tr = table.insertRow(-1);
         var cell = tr.insertCell(-1);
-        cell.innerHTML = empleados[i].Nombre;
+        cell.innerHTML = empleados[i].FechaEmision;
         cell = tr.insertCell(-1);
-        cell.innerHTML = empleados[i].Codigo;
+        cell.innerHTML = empleados[i].NombreEmpleado;
         cell = tr.insertCell(-1);
-        cell.innerHTML = empleados[i].Ci;
+        cell.innerHTML = empleados[i].CodigoEmpleado;
         cell = tr.insertCell(-1);
-        cell.innerHTML = empleados[i].Cargo;
+        cell.innerHTML = empleados[i].CiEmpleado;
         cell = tr.insertCell(-1);
-        cell.innerHTML = empleados[i].Tipo;
+        cell.innerHTML = empleados[i].CargoEmpleado;
         cell = tr.insertCell(-1);
-        cell.innerHTML = empleados[i].MetodoDePago;
+        cell.innerHTML = empleados[i].SalarioPagado;
     }
     document.getElementById(nombreTabla).appendChild(table);
-}
-
-function verEmpleadosPorTipo() {
-    window.location.href = '/presentacion/Vistas/empleadosPorTipo.html';
-}
-
-function crearNuevoEmpleado() {
-    window.location.href = '/presentacion/Vistas/registrarEmpleado.html';
 }
