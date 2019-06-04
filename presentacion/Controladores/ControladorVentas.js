@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var RepositorioVentasMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
+var RepositorioVentasMongoDB = require('../../repositorios/RepositorioVentasMongoDB').RepositorioVentasMongoDB;
 var InteractorRegistrarVenta = require('../../dominio/Interactores/InteractorRegistrarVenta').InteractorRegistrarVenta;
 var RegistrarVentaPeticion = require('../../dominio/DTO/RegistrarVentaPeticion').RegistrarVentaPeticion;
 var RegistrarVentaRespuesta = require('../../dominio/DTO/RegistrarVentaRespuesta').RegistrarVentaRespuesta;
