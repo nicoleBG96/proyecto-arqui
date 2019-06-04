@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="../Presentadores/registrarEmpleado.js"></script>
+  <script src="../Presentadores/registrarEmpleado.js" defer></script>
   <title>Registrar empleado</title>
 </head>
 
@@ -36,14 +36,14 @@
         </div>
         <div class="form-group col-md-6">
           <label for="inputAddress2">Fecha de Inicio</label>
-          <input type="date" class="form-control" id="FechaDeInicio" placeholder="DD/MM/AAAA">
+          <input type="date" class="form-control" id="FechaInicio" placeholder="DD/MM/AAAA">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="tipo">Tipo de Empleado</label>
-          <select id="TipoEmpleado" class="form-control">
+          <select id="Tipo" class="form-control" onclick="cambiarTipoDeSalario()">
             <option selected>Empleado Fijo</option>
             <option>Empleado Parcial</option>
             <option>Empleado por comision</option>
@@ -68,7 +68,7 @@
           </select>
         </div>
         <div class="form-group col-md-2">
-          <label for="Salario">Salario</label>
+          <label for="Salario" id="labelSalario">Salario</label>
           <input type="number" class="form-control" id="Salario" placeholder="$">
         </div>
       </div>
@@ -76,25 +76,25 @@
           <div class="form-group col-md-4">
               <label for="notificador">Método de notificación</label>
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="email">
+                <input type="checkbox" class="custom-control-input" id="email" onclick="seleccionarNotificadores()">
                 <label class="custom-control-label" for="email">E-mail</label>
-                <input type="checkbox" class="custom-control-input" id="facebook">
+                <input type="checkbox" class="custom-control-input" id="facebook" onclick="seleccionarNotificadores()">
                 <label class="custom-control-label" for="facebook">Facebook</label>
-                <input type="checkbox" class="custom-control-input" id="whatsapp">
+                <input type="checkbox" class="custom-control-input" id="whatsapp" onclick="seleccionarNotificadores()">
                 <label class="custom-control-label" for="defaultUnchecked">WhatsApp</label>
               </div>
             </div>
         <div class="form-group col-md-4">
           <label for="NotificadorEmail">E-mail</label>
-          <input type="email" class="form-control" id="NotificadorEmail" placeholder="nombre@mail.com">
+          <input type="email" class="form-control" id="NotificadorEmail" placeholder="nombre@mail.com" disabled>
         </div>
+        <div class="form-group col-md-2">
+            <label for="NotificadorFacebook">Nombre(Facebook)</label>
+            <input type="text" class="form-control" id="NotificadorFacebook" placeholder="Nombre" disabled>
+          </div>
         <div class="form-group col-md-2">
           <label for="NotificadorWhatsApp">Télefono</label>
-          <input type="text" class="form-control" id="NotificadorWhatsApp" placeholder="Télefono">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="NotificadorFacebook">Nombre(Facebook)</label>
-          <input type="text" class="form-control" id="NotificadorFacebook" placeholder="Nombre">
+          <input type="text" class="form-control" id="NotificadorWhatsapp" placeholder="Télefono" disabled>
         </div>
       </div>
       <div class="form-group col-md-4">
