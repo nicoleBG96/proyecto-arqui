@@ -42,7 +42,7 @@ class Empleado {
 
     aplicarDescuentoSindicato(salario){
         let descuento = this.sindicato.obtenerDescuentoSindicato();
-        return salario - (salario * descuento);
+        return salario - (salario * descuento / 100);
     }
 
     calcularSalarioAPagar() {
