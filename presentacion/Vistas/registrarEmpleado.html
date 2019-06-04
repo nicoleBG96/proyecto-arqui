@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
+  <script src="../Presentadores/registrarEmpleado.js"></script>
   <title>Registrar empleado</title>
 </head>
 
@@ -27,13 +26,13 @@
         </div>
         <div class="form-group col-md-6">
           <label for="Codigo">Codigo</label>
-          <input type="text" class="form-control" id="Codigo" placeholder="Codigo">
+          <input type="number" class="form-control" id="Codigo" placeholder="Codigo">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="ci">CI</label>
-          <input type="text" class="form-control" id="Ci" placeholder="Carnet de Identidad">
+          <input type="number" class="form-control" id="Ci" placeholder="Carnet de Identidad">
         </div>
         <div class="form-group col-md-6">
           <label for="inputAddress2">Fecha de Inicio</label>
@@ -112,7 +111,7 @@
         <br>
         <br>
         <br>
-        <button type="submit" class="btn btn-success btn-lg text-center btn-block">Sign in</button>
+        <button type="submit" class="btn btn-success btn-lg text-center btn-block" onclick="registrar()">Sign in</button>
       </div>
     </form>
   </div>
