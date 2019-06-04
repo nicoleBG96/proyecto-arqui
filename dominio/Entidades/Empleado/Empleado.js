@@ -48,7 +48,8 @@ class Empleado {
     calcularSalarioAPagar() {
         let salario = this.calculadoraDeMontos.calcularSalarioAPagar();
         if(this.perteneceAUnSindicato()){
-            salario = this.aplicarDescuentoSindicato(salario)
+            salario = this.aplicarDescuentoSindicato(salario);
+            this.sindicato.obtenerBeneficios();
         }
         return salario;
     }
