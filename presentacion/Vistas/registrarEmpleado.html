@@ -8,91 +8,113 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
   <title>Registrar empleado</title>
 </head>
 
 <body>
   <div class="container">
-      <h2 class="text-center">Registrar Empleado</h2>
-      <br>
-      <br>
-      <br>
-      <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre Completo">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="Codigo">Codigo</label>
-              <input type="text" class="form-control" id="codigo" placeholder="Codigo">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="ci">CI</label>
-              <input type="text" class="form-control" id="ci" placeholder="Carnet de Identidad">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputAddress2">Fecha de Inicio</label>
-              <input type="date" class="form-control" id="fechaDeInicio" placeholder="DD/MM/AAAA">
-            </div>
-          </div>
-      
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="tipo">Tipo de Empleado</label>
-              <select id="tipo" class="form-control">
-                <option selected>Empleado Fijo</option>
-                <option>Empleado Parcial</option>
-                <option>Empleado por comision</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="inputState">Cargo</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Administrador</option>
-                  <option>Gerente</option>
-                  <option>RRHH</option>
-                  <option>Vendedor</option>
-                </select>
-            </div>
-            
-            <div class="form-group col-md-4">
-              <label for="inputState">Método de pago</label>
-              <select id="inputState" class="form-control">
-                <option selected>Deposito</option>
-                <option>Efectivo</option>
-                <option>Cheque</option>
-              </select>
-            </div>  
-            <div class="form-group col-md-2">
-                <label for="inputState">Salario</label>
-                <input type="number" class="form-control" id="salario" placeholder="$">
-            </div>   
-          </div>
-          <div class="form-row">
-              <div class="form-group col-md-4">
-                  <label for="inputState">Sindicato</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Ninguno...</option>
-                    <option>Sindicato de Industria</option>
-                    <option>Sindicato de Empresa</option>
-                    <option>Sindicato de Obreros</option>
-                  </select>
+    <h2 class="text-center">Registrar Empleado</h2>
+    <br>
+    <br>
+    <br>
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="Nombre" placeholder="Nombre Completo">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Codigo">Codigo</label>
+          <input type="text" class="form-control" id="Codigo" placeholder="Codigo">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ci">CI</label>
+          <input type="text" class="form-control" id="Ci" placeholder="Carnet de Identidad">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputAddress2">Fecha de Inicio</label>
+          <input type="date" class="form-control" id="FechaDeInicio" placeholder="DD/MM/AAAA">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="tipo">Tipo de Empleado</label>
+          <select id="TipoEmpleado" class="form-control">
+            <option selected>Empleado Fijo</option>
+            <option>Empleado Parcial</option>
+            <option>Empleado por comision</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="Cargo">Cargo</label>
+          <select id="Cargo" class="form-control">
+            <option selected>Administrador</option>
+            <option>Gerente</option>
+            <option>RRHH</option>
+            <option>Vendedor</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="MetodoPago">Método de pago</label>
+          <select id="MetodoPago" class="form-control">
+            <option selected>Deposito</option>
+            <option>Efectivo</option>
+            <option>Cheque</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="Salario">Salario</label>
+          <input type="number" class="form-control" id="Salario" placeholder="$">
+        </div>
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-4">
+              <label for="notificador">Método de notificación</label>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="email">
+                <label class="custom-control-label" for="email">E-mail</label>
+                <input type="checkbox" class="custom-control-input" id="facebook">
+                <label class="custom-control-label" for="facebook">Facebook</label>
+                <input type="checkbox" class="custom-control-input" id="whatsapp">
+                <label class="custom-control-label" for="defaultUnchecked">WhatsApp</label>
               </div>
-              <div class="form-group col-md-4">
-                  <label for="notificador">Método de notificación</label>
-                  <select class="custom-select" multiple>
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                  </select>
-              </div>
-          </div>
-          <button type="submit" class="btn btn-success">Sign in</button>
-        </form>
+            </div>
+        <div class="form-group col-md-4">
+          <label for="NotificadorEmail">E-mail</label>
+          <input type="email" class="form-control" id="NotificadorEmail" placeholder="nombre@mail.com">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="NotificadorWhatsApp">Télefono</label>
+          <input type="text" class="form-control" id="NotificadorWhatsApp" placeholder="Télefono">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="NotificadorFacebook">Nombre(Facebook)</label>
+          <input type="text" class="form-control" id="NotificadorFacebook" placeholder="Nombre">
+        </div>
+      </div>
+      <div class="form-group col-md-4">
+          <label for="Sindicato">Sindicato</label>
+          <select id="Sindicato" class="form-control">
+            <option selected>Ninguno...</option>
+            <option>Sindicato de Industria</option>
+            <option>Sindicato de Empresa</option>
+            <option>Sindicato de Obreros</option>
+          </select>
+        </div>
+      <div class="form-group col-md-4">
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-success btn-lg text-center btn-block">Sign in</button>
+      </div>
+    </form>
   </div>
 </body>
 
