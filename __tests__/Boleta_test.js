@@ -19,7 +19,7 @@ describe("Boleta", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         let boleta = new Boleta(empleado, new Date());
         let datosBoleta = boleta.obtenerDatosDeBoleta();
         expect(datosBoleta.salarioAPagar).toBe(1100);
@@ -37,7 +37,7 @@ describe("Boleta", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         let boleta = new Boleta(empleado, new Date());
         let datosBoleta = boleta.obtenerDatosDeBoleta();
         expect(datosBoleta.salarioAPagar).toBe(1000);
@@ -51,7 +51,7 @@ describe("Boleta", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         let boleta = new Boleta(empleado, new Date());
         let datosBoleta = boleta.obtenerDatosDeBoleta();
         expect(datosBoleta.salarioAPagar).toBe(600);
