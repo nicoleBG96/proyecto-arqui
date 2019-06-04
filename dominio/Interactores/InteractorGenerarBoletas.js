@@ -1,4 +1,4 @@
-var FabricaDeEmpleados = require('../Entidades/Empleado/Fabricas/FabricaDeEmpleados').FabricaDeEmpleados;
+var FabricaDeEmpleados = require('../Entidades/Empleado/FabricasDeComponentesEmpleado/FabricaDeEmpleados').FabricaDeEmpleados;
 var GeneradorDeBoletas = require('../Entidades/Boleta/GeneradoresDeBoletas/GeneradorDeBoletas').GeneradorDeBoletas;
 
 class InteractorGenerarBoletas {

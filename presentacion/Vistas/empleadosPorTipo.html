@@ -2,31 +2,31 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=7, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="main.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="../Presentadores/mostrarEmpleados.js"></script>
-  <title>Empleados</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=7, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="../Presentadores/mostrarEmpleadosPorTipo.js"></script>
+    <title>Empleados</title>
 </head>
 
 <body onload="obtenerEmpleadosTipo()">
-  <div class="container">
-    <h2 style="text-align: center">Lista de Empleados</h2>
-    <br>
-    <br>
-    <br>
-    <h3 style="text-align: center">Empleados Tiempo Fijo</h3>
-    <div id="empleadosFijo"></div>
-    <h3 style="text-align: center">Empleados Tiempo Parcial</h3>
-    <div id="empleadosParcial"></div>
-    <h3 style="text-align: center">Empleados Por Comision</h3>
-    <div id="empleadosPorComision"></div>
-    <button onclick="crearNuevoEmpleado()">Nuevo Empleado</button>
-  </div>
+    <div class="container">
+        <h2 style="text-align: center">Lista de Empleados</h2>
+        <br>
+        <br>
+        <br>
+        <h3 style="text-align: center">Empleados Tiempo Fijo</h3>
+        <div id="empleadosFijo"></div>
+        <h3 style="text-align: center">Empleados Tiempo Parcial</h3>
+        <div id="empleadosParcial"></div>
+        <h3 style="text-align: center">Empleados Por Comision</h3>
+        <div id="empleadosPorComision"></div>
+        <button onclick="crearNuevoEmpleado()">Nuevo Empleado</button>
+    </div>
 </body>
 
 </html>

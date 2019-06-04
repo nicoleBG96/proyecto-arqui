@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var RepositorioAsistenciasMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
+var RepositorioAsistenciasMongoDB = require('../../repositorios/RepositorioAsistenciasMongoDB').RepositorioAsistenciasMongoDB;
 var InteractorRegistrarAsistencia = require('../../dominio/Interactores/InteractorRegistrarAsistencia').InteractorRegistrarAsistencia;
-var RecuperarEmpleadoPeticion = require('../../dominio/DTO/RecuperarEmpleadoPeticion').RecuperarEmpleadoPeticion;
-var RecuperarEmpleadoRespuesta = require('../../dominio/DTO/RecuperarEmpleadoRespuesta').RecuperarEmpleadoRespuesta;
+var RegistrarAsistenciaPeticion = require('../../dominio/DTO/RegistrarAsistenciaPeticion').RegistrarAsistenciaPeticion;
+var RegistrarAsistenciaRespuesta = require('../../dominio/DTO/RegistrarAsistenciaRespuesta').RegistrarAsistenciaRespuesta;
 
 router.post('/', function (peticion, respuesta) {
-    let recuperarEmpleadoPeticion = new RecuperarEmpleadoPeticion(peticion);
+    let registrarAsistenciaPeticion = new RegistrarAsistenciaPeticion(peticion);
     let interactorRegistrarAsistencia = new InteractorRegistrarAsistencia(new RepositorioAsistenciasMongoDB());
-    interactorRegistrarAsistencia.registrarAsistencia(recuperarEmpleadoPeticion.darFormato())
+    interactorRegistrarAsistencia.registrarAsistencia(registrarAsistenciaPeticion.darFormato())
         .then(resp => {
-            let recuperarEmpleadoRespuesta = new RecuperarEmpleadoRespuesta(resp);
-            respuesta.send(recuperarEmpleadoRespuesta.darFormato());
+            let registrarAsistenciaRespuesta = new RegistrarAsistenciaRespuesta(resp);
+            respuesta.send(registrarAsistenciaRespuesta.darFormato());
         }).catch(err => {
             console.log(err)
         });

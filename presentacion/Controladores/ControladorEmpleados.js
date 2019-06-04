@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var RepositorioEmpleadosMongoDB = require('../../dominio/PuertoDeEntidades/RepositorioEmpleadosMongoDB').RepositorioEmpleadosMongoDB;
+var RepositorioEmpleadosMongoDB = require('../../repositorios/RepositorioEmpleadosMongoDB').RepositorioEmpleadosMongoDB;
 var InteractorCrearEmpleado = require('../../dominio/Interactores/InteractorCrearEmpleado').InteractorCrearEmpleado;
 var CrearEmpleadoPeticion = require('../../dominio/DTO/CrearEmpleadoPeticion').CrearEmpleadoPeticion;
 var CrearEmpleadoRespuesta = require('../../dominio/DTO/CrearEmpleadoRespuesta').CrearEmpleadoRespuesta;

@@ -1,6 +1,6 @@
-let CalculadoraSalarioEmpleadoFijo = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo').CalculadoraSalarioEmpleadoFijo;
-let CalculadoraSalarioEmpleadoParcial = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial').CalculadoraSalarioEmpleadoParcial;
-let CalculadoraSalarioEmpleadoPorComision = require('../../Empleado/CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision').CalculadoraSalarioEmpleadoPorComision;
+let CalculadoraSalarioEmpleadoFijo = require('../CalculadorasDeSalario/CalculadoraSalarioEmpleadoFijo').CalculadoraSalarioEmpleadoFijo;
+let CalculadoraSalarioEmpleadoParcial = require('../CalculadorasDeSalario/CalculadoraSalarioEmpleadoParcial').CalculadoraSalarioEmpleadoParcial;
+let CalculadoraSalarioEmpleadoPorComision = require('../CalculadorasDeSalario/CalculadoraSalarioEmpleadoPorComision').CalculadoraSalarioEmpleadoPorComision;
 let FabricaTarjetaDeAsistencias = require('./FabricaTarjetaDeAsistencias').FabricaTarjetaDeAsistencias;
 let FabricaTarjetaDeVentas = require('./FabricaTarjetaDeVentas').FabricaTarjetaDeVentas;
 

@@ -4,6 +4,7 @@ class GenerarBoletasPeticion {
     }
 
     darFormato(){
+        this.peticion.body = { "FechaActual" : "5, 31, 2019" };
         return this.peticion.body.FechaActual;
     }
 }
