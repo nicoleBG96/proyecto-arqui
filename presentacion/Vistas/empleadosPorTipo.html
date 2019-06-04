@@ -13,14 +13,18 @@
   <title>Empleados</title>
 </head>
 
-<body onload="obtenerEmpleados()">
+<body onload="obtenerEmpleadosTipo()">
   <div class="container">
-    <h2>Lista de Empleados</h2>
+    <h2 style="text-align: center">Lista de Empleados</h2>
     <br>
     <br>
     <br>
-    <div id="empleados"></div>
-    <button onclick="verEmpleadosPorTipo()">Ver por tipo</button>
+    <h3 style="text-align: center">Empleados Tiempo Fijo</h3>
+    <div id="empleadosFijo"></div>
+    <h3 style="text-align: center">Empleados Tiempo Parcial</h3>
+    <div id="empleadosParcial"></div>
+    <h3 style="text-align: center">Empleados Por Comision</h3>
+    <div id="empleadosPorComision"></div>
     <button onclick="crearNuevoEmpleado()">Nuevo Empleado</button>
   </div>
 </body>
