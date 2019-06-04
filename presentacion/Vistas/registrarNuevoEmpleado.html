@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="../Presentadores/registrarEmpleado.js"></script>
+    <title>Registrar Venta</title>
+</head>
+
+<body>
+    <div>
+        <div class="jumbotron text-center">
+            <h1 class="white-text">Registrar Venta?</h1>
+            <br>
+            <div class="container">
+                <div class="container">
+                    <div class="form-group text-center">
+                        <label class="white-text">Nombre</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Codigo</label>
+                        <input type="number" class="form-control" id="codigo">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Ci</label>
+                        <input type="number" class="form-control" id="ci">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Cargo</label>
+                        <input type="text" class="form-control" id="cargo">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label for="tipo">Tipo de Empleado</label>
+                        <select id="tipo" class="form-control"">
+                            <option value="Fijo" selected>Empleado Fijo</option>
+                            <option value="Parcial">Empleado Parcial</option>
+                            <option value="PorComision">Empleado por comision</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Telefono</label>
+                        <input type="number" class="form-control" id="telefono">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Correo</label>
+                        <input type="email" class="form-control" id="correo">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Facebook</label>
+                        <input type="text" class="form-control" id="facebook">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label for="MetodoPago">Método de pago</label>
+                        <select id="metodoDePago" class="form-control">
+                            <option value="Deposito" selected>Deposito</option>
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Cheque">Cheque</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label for="Salario" id="labelSalario">Salario</label>
+                        <input type="number" class="form-control" id="salario" placeholder="$">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label class="white-text">Fecha ingreo</label>
+                        <input type="date" class="form-control" id="fecha">
+                    </div>
+                    <br>
+                    <div class="form-group text-center">
+                        <label for="Sindicato">Sindicato</label>
+                        <select id="sindicato" class="form-control">
+                            <option selected value="SindicatoIndustria">Sindicato de Industria</option>
+                            <option value="SindicatoInterEmpresa">Sindicato de Empresa</option>
+                            <option value="SindicatoObreros">Sindicato de Obreros</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button class="btn-success" onclick="registrarEmpleado()">Guardar Empleado</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
