@@ -18,7 +18,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoFijo();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(1100);
     });
 
@@ -28,7 +28,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(0);
     });
 
@@ -40,7 +40,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(300);
     });
 
@@ -56,7 +56,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoParcial();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(1000);
     });
 
@@ -66,7 +66,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(100);
     });
 
@@ -78,7 +78,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(600);
     });
 
@@ -94,7 +94,7 @@ describe("Empleado", function () {
         let verificadorFechaDePagoEmpleadoFijo = new VerificadorFechaDePagoEmpleadoPorComision();
         let notificador = new NotificadorEmail();
         let metodoDePago = new PagoPorDeposito();
-        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago);
+        let empleado = new Empleado("Royer Torrico", "T-123", 8798415, "Champion", calculadoraDeSalario, verificadorFechaDePagoEmpleadoFijo, notificador, metodoDePago, null);
         expect(empleado.calcularSalarioAPagar()).toBe(750);
     });
 })

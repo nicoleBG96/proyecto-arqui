@@ -4,7 +4,7 @@ class PagoPorCheque{
     }
 
     efectuarPago(){
-        
+        console.log("Pago efectuado mediante cheque");
     }
 }
 

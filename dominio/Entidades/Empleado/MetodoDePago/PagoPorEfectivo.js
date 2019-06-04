@@ -4,7 +4,7 @@ class PagoPorEfectivo{
     }
 
     efectuarPago(){
-        
+        console.log("Pago efectuado mediante efectivo");
     }
 }
 

@@ -16,6 +16,7 @@ class GeneradorDeBoletas {
         if(this.sePuedeGenerarLaBoletaDelEmpleado(empleado, fecha)){
             let boleta = new Boleta(empleado, fecha);
             empleado.enviarNotificacion();
+            empleado.efectuarPago();
             return boleta.generarBoletaDelEmpleado();
         }else{
             return this.generarError();

@@ -1,5 +1,5 @@
 class Empleado {
-    constructor(nombre, codigo, ci, cargo, calculadoraDeMontos, verificadorFechaDePago, notificadorDePago, metodoDePago) {
+    constructor(nombre, codigo, ci, cargo, calculadoraDeMontos, verificadorFechaDePago, notificadorDePago, metodoDePago, sindicato) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.ci = ci;
@@ -9,6 +9,7 @@ class Empleado {
         this.notificadorDePago = notificadorDePago;
         this.metodoDePago = metodoDePago;
         this.fechaDeIngreso = new Date();
+        this.sindicato = sindicato;
     }
 
     obtenerNombre(){
@@ -27,16 +28,38 @@ class Empleado {
         return this.cargo;
     }
 
+    obtenerSindicato(){
+        return this.sindicato;
+    }
+
     esSuDiaDePaga(fecha) {
         return this.verificadorFechaDePago.esFechaDePago(fecha);
     }
 
+    perteneceAUnSindicato(){
+        return this.sindicato !== null;
+    }
+
+    aplicarDescuentoSindicato(salario){
+        let descuento = this.sindicato.obtenerDescuentoSindicato();
+        return salario - (salario * descuento);
+    }
+
     calcularSalarioAPagar() {
-        return this.calculadoraDeMontos.calcularSalarioAPagar();
+        let salario = this.calculadoraDeMontos.calcularSalarioAPagar();
+        if(this.perteneceAUnSindicato()){
+            salario = this.aplicarDescuentoSindicato(salario);
+            this.sindicato.obtenerBeneficios();
+        }
+        return salario;
     }
 
     enviarNotificacion(){
         this.notificadorDePago.enviarNotificacion();
+    }
+
+    efectuarPago(){
+        this.metodoDePago.efectuarPago();
     }
 }
 

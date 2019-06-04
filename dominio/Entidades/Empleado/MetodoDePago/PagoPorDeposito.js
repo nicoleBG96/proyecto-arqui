@@ -4,7 +4,7 @@ class PagoPorDeposito{
     }
 
     efectuarPago(){
-        
+        console.log("Pago efectuado mediante deposito");
     }
 }
 
